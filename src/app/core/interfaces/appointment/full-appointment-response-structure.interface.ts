@@ -19,4 +19,5 @@ export interface FullAppointmentResponseStructure {
   code: string;
   workerId: string;
   workerCompanyId: string;
+  notes: string;
 }

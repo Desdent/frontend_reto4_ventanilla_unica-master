@@ -9,6 +9,7 @@ export class UpdateAppointmentRequestDto {
   phoneUser: string;
   date: string;
   time: string;
+  notes: string;
 
   constructor(data: UpdateAppointmentRequestStructure) {
     this.nameUser = data.nameUser;
@@ -19,5 +20,6 @@ export class UpdateAppointmentRequestDto {
     this.phoneUser = data.phoneUser;
     this.date = data.date;
     this.time = data.time;
+    this.notes = data.notes;
   }
 }

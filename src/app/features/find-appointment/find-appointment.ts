@@ -74,6 +74,7 @@ export class FindAppointment {
     dniUser: ['', [Validators.required, CustomValidators.validateDniNie]],
     date: ['', Validators.required],
     time: ['', Validators.required],
+    notes: [''],
   });
 
   onSubmitFind() {
@@ -93,6 +94,7 @@ export class FindAppointment {
           phoneUser: appt.phoneUser,
           date: appt.date,
           time: appt.time,
+          notes: appt.notes,
         });
 
         this.activityService.getById(this.appointment()?.serviceId!).subscribe({

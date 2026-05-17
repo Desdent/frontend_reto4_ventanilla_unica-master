@@ -167,6 +167,7 @@ export class BookAppointment {
     serviceId: [this.selectedActivity()?.id, [Validators.required]],
     extraTime: [this.selectedActivity()?.extraTime, []],
     appointmentDuration: [this.selectedActivity()?.appointmentDuration],
+    notes: [''],
   });
 
   get emailControl() {
@@ -215,6 +216,10 @@ export class BookAppointment {
 
   get serviceIdControl() {
     return this.bookAppointmentForm.get('serviceId');
+  }
+
+  get notesControl() {
+    return this.bookAppointmentForm.get('notes');
   }
 
   /**

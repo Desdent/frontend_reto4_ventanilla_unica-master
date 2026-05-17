@@ -7,4 +7,5 @@ export interface UpdateAppointmentRequestStructure {
   phoneUser: string;
   date: string;
   time: string;
+  notes: string;
 }

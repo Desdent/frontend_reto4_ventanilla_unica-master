@@ -21,6 +21,7 @@ export class FullAppointmentResponseDto {
   code: string;
   workerId: string;
   workerCompanyId: string;
+  notes: string;
 
   constructor(data: FullAppointmentResponseStructure) {
     this.id = data.id;
@@ -41,5 +42,6 @@ export class FullAppointmentResponseDto {
     this.code = data.code;
     this.workerId = data.workerId;
     this.workerCompanyId = data.workerCompanyId;
+    this.notes = data.notes;
   }
 }

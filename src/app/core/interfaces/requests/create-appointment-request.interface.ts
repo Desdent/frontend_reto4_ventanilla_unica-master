@@ -13,4 +13,5 @@ export interface CreateAppointmentRequest {
   serviceId: string;
   extraTime?: number;
   appointmentDuration?: number;
+  notes: string;
 }
