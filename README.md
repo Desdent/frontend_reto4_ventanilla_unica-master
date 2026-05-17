@@ -1,6 +1,4 @@
-# Ventanilla Única Frontend
-
-Aplicación frontend desarrollada con Angular 21 para la gestión de citas y servicios de una ventanilla única.
+# Ventanilla Única NovaHub Frontend
 
 ## Descripción
 
@@ -98,7 +96,3 @@ npm test
 - `src/app/features/directory/` → Reserva pública de citas
 - `src/app/core/services/` → Servicios que consumen el backend
 - `src/app/layout/` → Navegación, footer y layout general
-
-## Créditos
-
-Basado en el proyecto Ventanilla Única NovaHub.
