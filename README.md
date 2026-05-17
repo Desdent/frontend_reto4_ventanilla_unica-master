@@ -1,59 +1,104 @@
-# VentanillaUnicaFrontend
+# Ventanilla Única Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.6.
+Aplicación frontend desarrollada con Angular 21 para la gestión de citas y servicios de una ventanilla única.
 
-## Development server
+## Descripción
 
-To start a local development server, run:
+Esta aplicación incluye:
 
-```bash
-ng serve
-```
+- Autenticación con `login` y `register`.
+- Área pública de directorio y reserva de citas.
+- Panel de control con secciones para citas, usuarios, trabajadores, empresas, administradores, salas, horarios, actividades y feriados.
+- Roles con control de acceso (`SuperAdmin`, `Admin`, `Worker`, `BaseUser`).
+- Confirmación de llegada y sala de espera con conexión en tiempo real (`socket.io-client`).
+- Localización en inglés (`en-US`) y español (`es`).
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tecnologías principales
 
-## Code scaffolding
+- Angular 21
+- TypeScript
+- Tailwind CSS
+- PrimeNG / PrimeIcons
+- FullCalendar
+- ngx-formly
+- jsPDF
+- socket.io-client
+- Vitest
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Requisitos
 
-```bash
-ng generate component component-name
-```
+- Node.js compatible con npm 11.8.0
+- Angular CLI compatible con Angular 21
+- Backend API activo para la autenticación y consumo de los servicios de citas, usuarios, empresas, salas, horarios y vacaciones.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+> El frontend usa URLs de API como `http://localhost:3000/api/...` en varios servicios. Ajusta las rutas si tu backend corre en otro puerto o dominio.
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Instalación
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+## Ejecución en desarrollo
 
 ```bash
-ng e2e
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Abre `http://localhost:4200/` en tu navegador.
 
-## Additional Resources
+## Rutas principales
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- `/` → Directorio de servicios y reserva de citas
+- `/login` → Inicio de sesión
+- `/register` → Registro de nuevos usuarios
+- `/dashboard` → Panel protegido de administración y gestión
+- `/dashboard/home` → Página principal del dashboard
+- `/dashboard/appointments` → Gestión de citas
+- `/dashboard/today` → Citas del día
+- `/dashboard/users` → Gestión de usuarios
+- `/dashboard/workers` → Gestión de trabajadores
+- `/dashboard/companies` → Gestión de empresas
+- `/dashboard/admins` → Gestión de administradores
+- `/dashboard/holidays` → Gestión de feriados
+- `/dashboard/schedules` → Gestión de horarios
+- `/dashboard/activities` → Gestión de actividades
+- `/dashboard/rooms` → Gestión de salas
+- `/dashboard/my-data` → Perfil del usuario
+- `/dashboard/company-data` → Datos de la empresa
+- `/confirm` → Confirmación de llegada
+- `/waiting/:id` → Sala de espera en tiempo real
+- `/find-appointment` → Búsqueda de citas
+
+## Construcción para producción
+
+```bash
+npm run build
+```
+
+Los archivos generados se colocan en `dist/`.
+
+## Pruebas
+
+```bash
+npm test
+```
+
+## Notas importantes
+
+- El proyecto usa `localStorage` para persistir el token JWT.
+- El layout principal está en `src/app/layout/main-layout/`.
+- El servicio de temas está en `src/app/utils/themeservice.ts`.
+- Los archivos de localización son `messages.xlf` y `messages_es.xlf`.
+
+## Estructura clave
+
+- `src/app/auth/` → Inicio de sesión y registro
+- `src/app/features/dashboard/` → Secciones del panel administrativo
+- `src/app/features/directory/` → Reserva pública de citas
+- `src/app/core/services/` → Servicios que consumen el backend
+- `src/app/layout/` → Navegación, footer y layout general
+
+## Créditos
+
+Basado en el proyecto Ventanilla Única NovaHub.
