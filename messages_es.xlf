@@ -1,0 +1,3061 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="login.errorMain" datatype="html">
+        <source>Email or password incorrect</source>
+        <target>Email o contraseña incorrecto</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">15,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login_email" datatype="html">
+        <source>Email *</source>
+       <target>Email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">20,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.errorEmailRequired" datatype="html">
+        <source>Required email</source>
+        <target>Email requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">32,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.errorEmailInvalid" datatype="html">
+        <source>Invalid email</source>
+        <target>Email Inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">37,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login_password" datatype="html">
+        <source>Password *</source>
+        <target>Contraseña</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">44,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.errorPasswordRequired" datatype="html">
+        <source>Required password</source>
+        <target>Contraseña requerida</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">56,58</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">263,265</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.errorPasswordMin" datatype="html">
+        <source>Min 7 characters</source>
+        <target>Min 7 caracteres</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">60,62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">271,273</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.errorPasswordMax" datatype="html">
+        <source>Max 50 characters</source>
+        <target>max 50 caracteres</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">64,66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.errorPasswordLowercase" datatype="html">
+        <source> One lowercase </source>
+        <target>Una minúscula</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">72,74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.errorPasswordUppercase" datatype="html">
+        <source> One uppercase </source>
+        <target>Una mayúscula</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">78,80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.errorPasswordSpecial" datatype="html">
+        <source> One specieal character </source>
+        <target>Una carácter especial</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">81,83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.errorPasswordDigit" datatype="html">
+        <source> One digit </source>
+        <target>Un número</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">84,87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.login" datatype="html">
+        <source> Login </source>
+        <target>Login</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">95,96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.google" datatype="html">
+        <source> PLACEHOLDER BUTTON GOOGLE </source>
+        <target>Google</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">101,102</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.signUp" datatype="html">
+        <source> SIGN UP </source>
+        <target>REGISTRARSE</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">111,113</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.back" datatype="html">
+        <source> Back </source>
+        <target>Volver</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.html</context>
+          <context context-type="linenumber">120,122</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.name" datatype="html">
+        <source>Name *</source>
+        <target>Nombre * </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">16,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorName" datatype="html">
+        <source>Required name</source>
+        <target>Nombre requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">27,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorNameMin" datatype="html">
+        <source>Min length is 1 </source>
+        <target>Longitud mínima 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">32,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorNameMax" datatype="html">
+        <source>Max length is 30 </source>
+        <target>Longitud máxima 30</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">37,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.surname2" datatype="html">
+        <source>Second surname</source>
+        <target>Segundo apellido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">46,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorSurname2Max" datatype="html">
+        <source>Max length is 30 </source>
+        <target>Longitud máxima es 30</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">57,60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.address" datatype="html">
+        <source>Address *</source>
+        <target>Email o contraseña </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">65,67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorAddressMax" datatype="html">
+        <source>Max length is 30 </source>
+        <target>Longitud máxima es 30</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">76,79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorEmailRequired" datatype="html">
+        <source>Required email</source>
+        <target>Email requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">96,99</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorEmailInvalid" datatype="html">
+        <source>Invalid email </source>
+        <target>Email inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">103,106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.surname1" datatype="html">
+        <source>First surname *</source>
+        <target>Primer apellido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">115,117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorSurname1Required" datatype="html">
+        <source>Required first surname</source>
+        <target>Apellido requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">128,131</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorSurname1Min" datatype="html">
+        <source>Min length is 1 </source>
+        <target>Longitud mínima 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">135,138</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorSurname1Max" datatype="html">
+        <source>Max length is 30 </source>
+        <target>Longitud máxima 30</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">142,145</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.dni" datatype="html">
+        <source>DNI/NIE *</source>
+        <target>DNI/NIE *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">151,153</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorDocumentRequired" datatype="html">
+        <source>Required document</source>
+        <target>Documento requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">165,168</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorDocumentInvalid" datatype="html">
+        <source>Invalid document </source>
+        <target>Documento inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">172,175</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.phone" datatype="html">
+        <source>Phone *</source>
+        <target>Teléfono *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">181,183</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorPhoneRequired" datatype="html">
+        <source>Required phone</source>
+        <target>Teléfono requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">194,197</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorPhoneInvalid" datatype="html">
+        <source>Invalid phone </source>
+        <target>Teléfono inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">201,204</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.password" datatype="html">
+        <source>Password *</source>
+        <target>Contraseña *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">210,213</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorPasswordRequired" datatype="html">
+        <source>Required password</source>
+        <target>Contraseña requerida</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">224,227</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorpasswordMin" datatype="html">
+        <source>Min 7 characters</source>
+        <target>Mínimo 7 caracteres</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">231,234</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorPasswordMax" datatype="html">
+        <source>Max 50 characters</source>
+        <target>Máximo 50 caracteres</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">238,241</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorPasswordLowercase" datatype="html">
+        <source> One lowercase </source>
+        <target>Una minúscula</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">249,251</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorPasswordUppercase" datatype="html">
+        <source> One uppercase </source>
+        <target>Una mayúscula</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">255,257</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorPasswordSpecial" datatype="html">
+        <source> One special character </source>
+        <target>Un carácter especial</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">261,263</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorPasswordDigit" datatype="html">
+        <source> One digit </source>
+        <target>Un número</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">267,269</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.confirmPassword" datatype="html">
+        <source>Confirm password *</source>
+        <target>Confirmar contraseña *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">279,283</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorConfirmationPasswordRequired" datatype="html">
+        <source>Required confirmation</source>
+        <target>Confirmación requerida</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">293,296</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorPasswordMatch" datatype="html">
+        <source>Passwords do not match</source>
+        <target>Las contraseñas no coinciden</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">300,303</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.back" datatype="html">
+        <source> Back </source>
+        <target>Volver</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">313,315</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">325,327</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.register" datatype="html">
+        <source> Register </source>
+        <target>Registro</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">320,322</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.modalErrorFirstP" datatype="html">
+        <source>Oops, something went wrong.</source>
+        <target>Ups, algo ha ido mal.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">335,337</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.modalErrorSecondP" datatype="html">
+        <source>Registration not allowed or user already exists</source>
+        <target>Registro no permitido o usuario existente</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">337,339</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.modalCreatedFirstP" datatype="html">
+        <source>Registration completed.</source>
+        <target>Registro completo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">352,353</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.modalCreatedSecondP" datatype="html">
+        <source>Redirecting to your dashboard...</source>
+        <target>Volviendo a su panel de usuario...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.html</context>
+          <context context-type="linenumber">353,355</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.arrivalConfirmed" datatype="html">
+        <source> Arrival Confirmed </source>
+        <target>Llegada confirmada</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/confirm-arrive/confirm-arrive.html</context>
+          <context context-type="linenumber">50,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.ArrivalConfirmedFirstP" datatype="html">
+        <source> Please wait while you&apos;re called. </source>
+        <target>Espere mientras es llamado.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/confirm-arrive/confirm-arrive.html</context>
+          <context context-type="linenumber">54,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.modalErrorFirstP" datatype="html">
+        <source> Oops, something went wrong </source>
+        <target>Ups, algo ha ido mal</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/confirm-arrive/confirm-arrive.html</context>
+          <context context-type="linenumber">72,75</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">415,416</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">473,474</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">322,325</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">367,370</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.activitiesTitle" datatype="html">
+        <source>Services</source>
+        <target>Servicios</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">3,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="adminDashboard.appointmentsEmployee" datatype="html">
+        <source> Name </source>
+        <target>Nombre</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">32,35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/appointments/appointments.html</context>
+          <context context-type="linenumber">30,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="adminDashboard.appointmentsNameUser" datatype="html">
+        <source> Field </source>
+        <target>Campo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">39,42</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/appointments/appointments.html</context>
+          <context context-type="linenumber">37,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="adminDashboard.appointmentsSurname" datatype="html">
+        <source> Rooms </source>
+        <target>Habitaciones</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">46,49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">53,56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/appointments/appointments.html</context>
+          <context context-type="linenumber">44,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="adminDashboard.appointmentsService" datatype="html">
+        <source> Actions </source>
+        <target>Acciones</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">60,63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/appointments/appointments.html</context>
+          <context context-type="linenumber">64,66</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">39,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5377078063439833222" datatype="html">
+        <source> Edit </source>
+        <target>Editar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">113,114</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">263</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">69,70</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">98,99</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/todays-appointments/todays-appointments.html</context>
+          <context context-type="linenumber">101,102</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">117,118</context>
+        </context-group>
+        <note priority="1" from="description">button.edit</note>
+      </trans-unit>
+      <trans-unit id="6660925946511264619" datatype="html">
+        <source> Delete </source>
+        <target>Borrar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">120,121</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">99,100</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">92,93</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">271,272</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">76,77</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">105,106</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">124,125</context>
+        </context-group>
+        <note priority="1" from="description">button.delete</note>
+      </trans-unit>
+      <trans-unit id="form.name" datatype="html">
+        <source> Name * </source>
+        <target>Nombre *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">149,151</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">266,268</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.activityCreated" datatype="html">
+        <source>Service created.</source>
+        <target>Servicio creado.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">381,384</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.serviceCreated" datatype="html">
+        <source>Service updated.</source>
+        <target>Servicio actualizado.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">398,401</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.modalConfirmFirstP" datatype="html">
+        <source>Are you sure?</source>
+        <target>¿Está seguro?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">413,415</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">376,378</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">432,434</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">657,659</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.serviceDeleted" datatype="html">
+        <source>Service deleted.</source>
+        <target>Servicio borrado.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">437,440</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.modalErrorFirstP" datatype="html">
+        <source>Oops, something went wrong.</source>
+        <target>Ups, algo ha ido mal.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/activities/activities.html</context>
+          <context context-type="linenumber">453,454</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">177,178</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">471,472</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">660,661</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">679,680</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">406,407</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">697,698</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.name" datatype="html">
+        <source>Name *</source>
+        <target>Nombre *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">156,158</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">186,188</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.errorNameRequired" datatype="html">
+        <source>Required name</source>
+        <target>Nombre requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">169,171</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">199,201</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1732897300905769644" datatype="html">
+        <source>Min length is 1 </source>
+        <target>Longitud mínima 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">176,178</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">263,265</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">206,208</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">293,295</context>
+        </context-group>
+        <note priority="1" from="description">createAdmin.errorNameMin</note>
+      </trans-unit>
+      <trans-unit id="2442805938346823736" datatype="html">
+        <source>Max length is 30 </source>
+        <target>Longitud máxima 30</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">183,185</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">270,272</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">213,215</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">300,302</context>
+        </context-group>
+        <note priority="1" from="description">createAdmin.errorNameMax</note>
+      </trans-unit>
+      <trans-unit id="createAdmin.surname2" datatype="html">
+        <source>Surname2 </source>
+        <target>Segundo apellido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">195,196</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">225,226</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.dni" datatype="html">
+        <source>DNI/NIE *</source>
+        <target>DNI/NIE</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">208,210</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">238,240</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.errorDniRequired" datatype="html">
+        <source>Required name</source>
+        <target>Nombre requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">221,223</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">251,253</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.errorDniInvalid" datatype="html">
+        <source>Invalid document</source>
+        <target>Documento inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">228,230</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">258,260</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.surname1" datatype="html">
+        <source>Surname1 *</source>
+        <target>Primer Apellido *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">243,245</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">273,275</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.errorSurame1Required" datatype="html">
+        <source>Required surname1</source>
+        <target>Primer apellido requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">256,258</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">286,288</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.email" datatype="html">
+        <source>Email *</source>
+        <target>Email *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">279,281</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">309,311</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.errorEmailRequired" datatype="html">
+        <source>Required email</source>
+        <target>Email requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">292,294</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">322,324</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.errorEmailInvalid" datatype="html">
+        <source>Invalid email</source>
+        <target>Email inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">299,301</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">329,331</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3262236020277300799" datatype="html">
+        <source>Phone</source>
+        <target>Teléfono</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">308,310</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">338,340</context>
+        </context-group>
+        <note priority="1" from="description">@createAdmin.phone</note>
+      </trans-unit>
+      <trans-unit id="createAdmin.errorPhoneRequired" datatype="html">
+        <source>Required phone</source>
+        <target>Teléfono requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">321,323</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">357,360</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">351,353</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.errorPhoneInvalid" datatype="html">
+        <source>Invalid phone </source>
+        <target>Teléfono inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">328,331</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">358,361</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="847717841744603594" datatype="html">
+        <source>Company *</source>
+        <target>Compañía</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">340,342</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.selectField" datatype="html">
+        <source>Select a company</source>
+        <target>Seleccione compañía</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">348,349</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">276,277</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.close" datatype="html">
+        <source> Close </source>
+        <target>Cerrar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">371,372</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.createAdmin" datatype="html">
+        <source> Create Admin </source>
+        <target>Crear Admin</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">381,382</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">395,396</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.modalErrorFirstP" datatype="html">
+        <source>Oops, something went wrong.</source>
+        <target>Ups, algo ha ido mal</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">396,397</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createAdmin.modalCreated" datatype="html">
+        <source>Admin created.</source>
+        <target>Admin creado.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">412,414</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deleteAdmin.modalConfirmFirstP" datatype="html">
+        <source>Are you sure?</source>
+        <target>¿Está segur?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">431,433</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">664,666</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">703,705</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deleteAdmin.modalErrorFirstP" datatype="html">
+        <source>Oops, something went wrong.</source>
+        <target>Ups, algo ha ido mal.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">452,453</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deleteAdmin.modalCreated" datatype="html">
+        <source>Admin Deleted.</source>
+        <target>Admin Borrado.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/admins-company/admins.html</context>
+          <context context-type="linenumber">468,471</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.appointmentsTitle" datatype="html">
+        <source> Our Appointments </source>
+        <target>Nuestras Citas</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/appointments/appointments.html</context>
+          <context context-type="linenumber">7,11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">3,6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">4,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="adminDashboard.appointmentsDate" datatype="html">
+        <source> Date </source>
+        <target>Fecha</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/appointments/appointments.html</context>
+          <context context-type="linenumber">57,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="button.prev" datatype="html">
+        <source> Prev </source>
+        <target>Prev</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/appointments/appointments.html</context>
+          <context context-type="linenumber">116,117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="button.next" datatype="html">
+        <source> Next </source>
+        <target>Sig</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/appointments/appointments.html</context>
+          <context context-type="linenumber">137,138</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="appointments.noAppointments" datatype="html">
+        <source> No appointments to show </source>
+        <target>Sin citas que mostrar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/appointments/appointments.html</context>
+          <context context-type="linenumber">141,143</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="appointments.title" datatype="html">
+        <source><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;card w-full bg-primary p-10 rounded-2xl&quot;&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p class=&quot;text-text text-4xl font-semibold&quot;&gt;"/>Appointments Calendar<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/appointments/appointments.html</context>
+          <context context-type="linenumber">152,156</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.nameRequired" datatype="html">
+        <source>Name *</source>
+        <target>Nombre *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">152,154</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.errorName" datatype="html">
+        <source>Required name</source>
+        <target>Nombre requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">163,165</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">152,154</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">183,186</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">377,379</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">408,411</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.errorNameMin" datatype="html">
+        <source>Min length is 1 </source>
+        <target>Longitud mínima 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">170,172</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">157,160</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">382,385</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.errorNameMax" datatype="html">
+        <source>Max length is 30 </source>
+        <target>Longitud máxima 30</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">177,179</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">162,165</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">387,390</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.dni" datatype="html">
+        <source>CIF *</source>
+        <target>CIF *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">186,188</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.errorCiRequired" datatype="html">
+        <source>Required CIF</source>
+        <target>CIF requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">199,201</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.errorInvalidCif" datatype="html">
+        <source>Invalid CIF </source>
+        <target>CIF inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">206,208</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.phone" datatype="html">
+        <source>Phone *</source>
+        <target>Teléfono *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">218,220</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.errorPhoneRequired" datatype="html">
+        <source>Required phone</source>
+        <target>Teléfono requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">231,233</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.errorPhoneInvalid" datatype="html">
+        <source>Invalid phone </source>
+        <target>Teléfono inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">238,240</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.address" datatype="html">
+        <source>Address *</source>
+        <target>Dirección *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">247,249</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.errorAddressRequired" datatype="html">
+        <source>Required address</source>
+        <target>Dirección requerida</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">260,263</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.field" datatype="html">
+        <source>Field *</source>
+        <target>Campo *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">268,270</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.errorFieldRequired" datatype="html">
+        <source>Required field</source>
+        <target>Campo requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">285,288</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.addCompany" datatype="html">
+        <source> Close </source>
+        <target>Cerrar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">299,300</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">309,310</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.modalErrorFirstP" datatype="html">
+        <source>Oops, something went wrong.</source>
+        <target>Ups, algo ha ido mal</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">324,325</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">380,381</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">596,597</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">630,631</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.modalCreated" datatype="html">
+        <source>Company created.</source>
+        <target>Compaía creada.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">340,342</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">396,399</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deleteCompany.modalConfirmFirstP" datatype="html">
+        <source>Are you sure?</source>
+        <target>Está seguro?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/companies/companies.html</context>
+          <context context-type="linenumber">359,361</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.companyDataTitle" datatype="html">
+        <source>Company Data</source>
+        <target>Datos de Compañía</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">3,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorNameRequired" datatype="html">
+        <source>Name is required</source>
+        <target>Nombre requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">26,28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">199,201</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">413,415</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorMinLength" datatype="html">
+        <source>Min length is 1</source>
+        <target>Longitud mínima 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">30,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorMaxLength" datatype="html">
+        <source>Max length is 30</source>
+        <target>Longitud máxima 30</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">34,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorCifRequired" datatype="html">
+        <source>CIF is required</source>
+        <target>CIF requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">51,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorCifInvalid" datatype="html">
+        <source>Invalid CIF</source>
+        <target>CIF inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">54,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorPhoneRequired" datatype="html">
+        <source>Phone is required</source>
+        <target>Teléfono requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">73,75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorPhoneInvalid" datatype="html">
+        <source>Invalid phone</source>
+        <target>Teléfono inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">77,80</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">88,90</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">256,259</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">474,477</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorAddressRequired" datatype="html">
+        <source>Address is required</source>
+        <target>Dirección requerida</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">94,96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorAddressMinLength" datatype="html">
+        <source>Min length is 1</source>
+        <target>Longitud mínima 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">98,100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorAddressMaxLength" datatype="html">
+        <source>Max length is 100</source>
+        <target>Longitud máxima 100</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">102,105</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">169,171</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">341,344</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">561,564</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.confirmPassword" datatype="html">
+        <source>Confirm Password</source>
+        <target>Confirmar Contraseña</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">110,112</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">177,179</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorPasswordRequired" datatype="html">
+        <source> Password is required </source>
+        <target>Contraseña requerida</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">123,125</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">190,192</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorPasswordMaxLength" datatype="html">
+        <source> Max length is 50 </source>
+        <target>Longitud máxima 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">130,132</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">199,201</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.userUpdated" datatype="html">
+        <source>Company updated.</source>
+        <target>Compañía borrada</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/company-data/company-data.html</context>
+          <context context-type="linenumber">161,164</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">374,377</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.title" datatype="html">
+        <source> User Dashboard </source>
+        <target>Panel de Usuario</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/dashboard.html</context>
+          <context context-type="linenumber">4,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.subtitle" datatype="html">
+        <source> Manage all you data </source>
+        <target>Gestiona toda tu información</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/dashboard.html</context>
+          <context context-type="linenumber">7,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.vacations" datatype="html">
+        <source>Vacations Requests</source>
+        <target>Peticiones de Vacaciones</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">3,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.holidaysWorker" datatype="html">
+        <source> Employee </source>
+        <target>Empleado</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">34,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.holidaysWorkerSurname1" datatype="html">
+        <source> Surname </source>
+        <target>Apellido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.holidaysStartDate" datatype="html">
+        <source> Start Date </source>
+        <target>Fecha de Inicio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">48,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.holidaysEndDate" datatype="html">
+        <source> End Date </source>
+        <target>Fecha de Fin</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">55,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.holidaysType" datatype="html">
+        <source> Type </source>
+        <target>Tipo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">62,64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.holidaysStatus" datatype="html">
+        <source> Status </source>
+        <target>Estado</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">69,71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.holidaysActions" datatype="html">
+        <source> Actions </source>
+        <target>Acciones</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">72,74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2607565416406926368" datatype="html">
+        <source> Approve </source>
+        <target>Aprobar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+        <note priority="1" from="description">buttton.edit</note>
+      </trans-unit>
+      <trans-unit id="4969127222615947013" datatype="html">
+        <source> Deny </source>
+        <target>Denegar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">123</context>
+        </context-group>
+        <note priority="1" from="description">buttton.edit</note>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.noRequests" datatype="html">
+        <source> No requests to show </source>
+        <target>Sin peticiones que mostrar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">164,166</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardEmployee.holidaysStartDate" datatype="html">
+        <source> Start Date </source>
+        <target>Fecha de Inicio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">198,200</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardEmployee.holidaysEndDate" datatype="html">
+        <source> End Date </source>
+        <target>Fecha de Fin</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">205,207</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardEmployee.holidaysType" datatype="html">
+        <source> Type </source>
+        <target>Tipo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">212,214</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardEmployee.holidaysStatus" datatype="html">
+        <source> Status </source>
+        <target>Estado</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">219,221</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardEmployee.holidaysActions" datatype="html">
+        <source> Actions </source>
+        <target>Acciones</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">225,227</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardEmployee.noRequests" datatype="html">
+        <source> No requests to show </source>
+        <target>Sin peticiones que mostrar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">312,314</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.type" datatype="html">
+        <source>Type *</source>
+        <target>Tipo *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">336,338</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">515,517</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorTypeRequired" datatype="html">
+        <source>Required type</source>
+        <target>Tipo requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">354,356</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">533,535</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.startDate" datatype="html">
+        <source>Start Date *</source>
+        <target>Fecha de Inicio*</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">365,367</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">544,546</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorStartDateRequired" datatype="html">
+        <source>Required startDate</source>
+        <target>Fecha de Inicio Requerida</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">377,379</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">558,560</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorInvalidBeforeToday" datatype="html">
+        <source>Must be a valid date</source>
+        <target>Debe ser una fecha válida</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">386,388</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">568,570</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">287,290</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">518,521</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorStartDate14Days" datatype="html">
+        <source>Start must be at least after 14</source>
+        <target>El inicio debe ser tras min 14 días</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">395,397</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">578,580</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorStartDateAfterEndDate" datatype="html">
+        <source>Start date must be before End Date</source>
+        <target>Fecha de Inicio debe ser antes de Fecha Fin</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">403,406</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">588,591</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">267,270</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">294,297</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">496,499</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">525,528</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.endDate" datatype="html">
+        <source>End Date *</source>
+        <target>Fecha de Fin *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">411,413</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">596,598</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorEndDateRequired" datatype="html">
+        <source>Required End Date</source>
+        <target>Fecha de Fin Requerida</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">424,426</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">609,611</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorEndDateBeforeStartDate" datatype="html">
+        <source>End date must be after Start Date </source>
+        <target>Fecha Fin debe ser después de Fecha Inicio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">431,434</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">618,621</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.close" datatype="html">
+        <source> Close </source>
+        <target>Cerrar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">446,447</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">633,634</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.addRequest" datatype="html">
+        <source> Add Request </source>
+        <target>Añadir Petición</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">456,457</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">642,643</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.modalRequestCreated" datatype="html">
+        <source>Request created.</source>
+        <target>Petición creada.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">487,489</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.modalRequestUpdated" datatype="html">
+        <source>Request updated.</source>
+        <target>Petición actualizada</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">698,701</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">737,740</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.modalRequestDeleted" datatype="html">
+        <source>Are you sure?</source>
+        <target>¿Está seguro?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/holidays/holidays.html</context>
+          <context context-type="linenumber">713,715</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard.myDataTitle" datatype="html">
+        <source>My Data</source>
+        <target>Mis Datos</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">3,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorNameMinLength" datatype="html">
+        <source> Min length is 1 </source>
+        <target>Longitud Mínima 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">29,31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">203,205</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">417,419</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorNameMaxLength" datatype="html">
+        <source> Max length is 30 </source>
+        <target>Longitud Máxima 30</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">33,35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">207,210</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">421,424</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.surname1" datatype="html">
+        <source>First Surname *</source>
+        <target>Primer Apellido *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorSurname1Required" datatype="html">
+        <source> First surname is required </source>
+        <target>Primer apellido requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">54,56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">227,229</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">441,443</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorSurname1MinLength" datatype="html">
+        <source> Min length is 1 </source>
+        <target>Longitud mínima 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">63,65</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">233,235</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">449,451</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorSurname1MaxLength" datatype="html">
+        <source> Max length is 30 </source>
+        <target>Longitud máxima 30</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">72,74</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">239,242</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">457,460</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.phone" datatype="html">
+        <source>Phone</source>
+        <target>Teléfono</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">79,80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.email" datatype="html">
+        <source>Email *</source>
+        <target>Email *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">95,96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorEmailRequired" datatype="html">
+        <source> Email is required </source>
+        <target>Email requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">104,106</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">274,276</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">492,494</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorEmailInvalid" datatype="html">
+        <source> Invalid email </source>
+        <target>Email inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">108,110</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">278,281</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">498,501</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.dni" datatype="html">
+        <source>DNI *</source>
+        <target>DNI *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">118,119</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorDniRequired" datatype="html">
+        <source> Document required </source>^
+        <target>Documento requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">127,129</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">299,301</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">519,521</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorDniInvalid" datatype="html">
+        <source> Document required </source>
+        <target>Documento requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">131,133</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">303,305</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">523,525</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.surname2" datatype="html">
+        <source>Second Surname</source>
+        <target>Segundo Apellido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">138,140</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorSurname2MaxLength" datatype="html">
+        <source> Max length is 30 </source>
+        <target>Longitud máxima 30</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">150,152</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">322,325</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">542,545</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.address" datatype="html">
+        <source>Address</source>
+        <target>Dirección</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">157,159</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.pasword" datatype="html">
+        <source> Password * </source>
+        <target>Contraseña *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">247,248</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorPasswordMax" datatype="html">
+        <source>Max 50 characters</source>
+        <target>Máx 50 caracteres</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">277,279</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorPasswordLowercase" datatype="html">
+        <source> One lowercase </source>
+        <target>Una minúscula</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">288,290</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorPasswordUppercase" datatype="html">
+        <source> One uppercase </source>
+        <target>Una mayúscula</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">294,296</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorPasswordSpecial" datatype="html">
+        <source> One specieal character </source>
+        <target>Un carácter especial</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">300,301</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorPasswordDigit" datatype="html">
+        <source> One digit </source>
+        <target>Un número</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">306,307</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.confirmPasword" datatype="html">
+        <source>Confirm Password * </source>
+        <target>Confirmar Contraseña *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">317,320</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorPasswordMatch" datatype="html">
+        <source>Passwords do not match</source>
+        <target>Las contraseñas no coinciden</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">341,343</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.passwordUpdatedP1" datatype="html">
+        <source>Password updated.</source>
+        <target>Contraseña actualizada.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">389,390</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.passwordUpdatedP2" datatype="html">
+        <source>All your sessions will be closed.</source>
+        <target>Todas sus sesiones van a ser cerradas.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/my-data/my-data.html</context>
+          <context context-type="linenumber">390,395</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="adminDashboard.floor" datatype="html">
+        <source>Floor</source>
+        <target>Planta</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="adminDashboard.number" datatype="html">
+        <source>Number</source>
+        <target>Número</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="adminDashboard.service" datatype="html">
+        <source> Service </source>
+        <target>Servicio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">22,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="adminDashboard.actions" datatype="html">
+        <source> Actions </source>
+        <target>Acciones</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.number" datatype="html">
+        <source> Number * </source>
+        <target>Número</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">113,115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorNumberRequired" datatype="html">
+        <source> Number is required </source>
+        <target>Número requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">127,129</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.moreCounters" datatype="html">
+        <source> Add counters to canvas</source>
+        <target>Añadir mesas al canvas</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">134,135</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorFloorRequired" datatype="html">
+        <source> Floor is required </source>
+        <target>Planta requerida</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">169,171</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorServiceRequired" datatype="html">
+        <source> Service is required </source>
+        <target>Servicio requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">194,196</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.numberErrorRequired" datatype="html">
+        <source> Number is required </source>
+        <target>Número requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">251,253</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.floorErrorRequired" datatype="html">
+        <source> Floor is required </source>
+        <target>Planta requerida</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">289,291</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.serviceRErrorRequired" datatype="html">
+        <source> Service is required </source>
+        <target>Servicio requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">314,316</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.modalRoomCreated" datatype="html">
+        <source>Room created.</source>
+        <target>Sala creada.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">345,349</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.modalRoomUpdated" datatype="html">
+        <source>Room Updated.</source>
+        <target>Sala actualizada.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">361,365</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.ScheduleDeleted" datatype="html">
+        <source>Room deleted.</source>
+        <target>Sala borrada.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/rooms/rooms.html</context>
+          <context context-type="linenumber">400,403</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="adminDashboard.scheduleType" datatype="html">
+        <source> Type </source>
+        <target>Tipo </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">22,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="adminDashboard.scheduleStartDate" datatype="html">
+        <source> Start/End </source>
+        <target>Inicio/Fin</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">28,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="adminDashboard.scheduleEndDate" datatype="html">
+        <source> Entry/Exit </source>
+        <target>Entrada/Salida</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">31,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7402159845702792179" datatype="html">
+        <source> Activate </source>
+        <target>Activar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">113,114</context>
+        </context-group>
+        <note priority="1" from="description">addCompany.buttonDelete</note>
+      </trans-unit>
+      <trans-unit id="form.scheduleName" datatype="html">
+        <source> Name * </source>
+        <target>Nombre *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">142,145</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">367,370</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.scheduleType" datatype="html">
+        <source> Type * </source>
+        <target>Tipo *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">170,173</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">395,398</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.workdays" datatype="html">
+        <source> Workdays </source>
+        <target>Días Laborables</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">190,192</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">415,417</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorWorkdaysRequired" datatype="html">
+        <source>Required workday</source>
+        <target>Requiere dias laborables</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">203,205</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">432,434</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorWorkdaysMin" datatype="html">
+        <source>Must select at least 1 </source>
+        <target>Debe seleccionar al menos 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">208,210</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">437,439</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.entryTime" datatype="html">
+        <source> Entry Time * </source>
+        <target>Hora de Entrada *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">221,222</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">231,233</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">450,451</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">460,462</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.exitTime" datatype="html">
+        <source> Exit Time * </source>
+        <target>Hora de Salida*</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">238,241</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">247,249</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">467,470</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">476,478</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.scheduleStartDate" datatype="html">
+        <source> Start Date </source>
+        <target>Fecha de Inicio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">255,258</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">484,487</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.scheduleEndDate" datatype="html">
+        <source> End Date </source>
+        <target>Fecha de Fin</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">275,278</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">504,507</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.festivities" datatype="html">
+        <source> Festivities </source>
+        <target>Festivos</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">302,304</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">533,535</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.createSchedule" datatype="html">
+        <source> Add Schedule </source>
+        <target>Añadir Horario</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">346,348</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.updateSchedule" datatype="html">
+        <source> Update Schedule </source>
+        <target>Actualizar Horario</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">577,579</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.modalScheduleAdded" datatype="html">
+        <source>Schedule Added.</source>
+        <target>Horario Añadido.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">615,620</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.modalScheduleUpdated" datatype="html">
+        <source>Schedule Updated.</source>
+        <target>Horario Actualizado.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">649,654</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.modalScheduleDeleted" datatype="html">
+        <source>Schedule deleted.</source>
+        <target>Horario borrado.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">688,693</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addCompany.modalSchedulectivated" datatype="html">
+        <source>Schedule activated.</source>
+        <target>Hoirario Activado</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/schedules/schedules.html</context>
+          <context context-type="linenumber">727,731</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="changeStatus.status" datatype="html">
+        <source>Status *</source>
+        <target>Estado *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/todays-appointments/todays-appointments.html</context>
+          <context context-type="linenumber">165,167</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/todays-appointments/todays-appointments.html</context>
+          <context context-type="linenumber">189,191</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="changeStatus.selectStatus" datatype="html">
+        <source> Select a status </source>
+        <target>Seleccione un estado</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/todays-appointments/todays-appointments.html</context>
+          <context context-type="linenumber">174,175</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addAdmin.selectAdmin" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ opt }}"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/todays-appointments/todays-appointments.html</context>
+          <context context-type="linenumber">178,179</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="changeStatus.buttonClose" datatype="html">
+        <source> Close </source>
+        <target>Cerrar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/todays-appointments/todays-appointments.html</context>
+          <context context-type="linenumber">212,213</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="changeStatus.buttonConfirm" datatype="html">
+        <source> Confirm </source>
+        <target>Confirmar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/todays-appointments/todays-appointments.html</context>
+          <context context-type="linenumber">222,224</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="changeStatus.modalErrorFirstP" datatype="html">
+        <source>Oops, something went wrong.</source>
+        <target>Ups, algo ha ido mal.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/todays-appointments/todays-appointments.html</context>
+          <context context-type="linenumber">237,238</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="changeStatus.modalCreated" datatype="html">
+        <source> Appointment updated successfuly. </source>
+        <target>Cita actualizada con éxito.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/todays-appointments/todays-appointments.html</context>
+          <context context-type="linenumber">254,256</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6304432362546770951" datatype="html">
+        <source>Address</source>
+        <target>Dirección</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">367,369</context>
+        </context-group>
+        <note priority="1" from="description">@createAdmin.address</note>
+      </trans-unit>
+      <trans-unit id="createAdmin.errorAddressMaxLength" datatype="html">
+        <source>Max length is 100</source>
+        <target>Longitud máxima 100</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">380,383</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.userCreated" datatype="html">
+        <source>User created.</source>
+        <target>Usuario creado.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">417,420</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.userBanUnban" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ actionMsg() }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/users/users.html</context>
+          <context context-type="linenumber">457,459</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.employeesTitle" datatype="html">
+        <source>Employees</source>
+        <target>Empleados</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">3,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.employeesRoom" datatype="html">
+        <source> Room </source>
+        <target>Sala</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">32,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.employeesName" datatype="html">
+        <source> Name </source>
+        <target>Nombre</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">39,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.employeesSurname" datatype="html">
+        <source> Surname </source>
+        <target>Apellido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">46,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.employeesPhone" datatype="html">
+        <source> Phone </source>
+        <target>Teléfono</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">59,61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.employeesService" datatype="html">
+        <source> Service </source>
+        <target>Servicio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">66,68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.employeesActions" datatype="html">
+        <source> Actions </source>
+        <target>Acciones</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">72,74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboardAdmin.noEmployees" datatype="html">
+        <source> No employees to show </source>
+        <target>Sin empleados que mostrar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">165,168</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form.errorCounterRequired" datatype="html">
+        <source> Counter is required </source>
+        <target>Mesa requerida</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">367,369</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">593,595</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.workerCreated" datatype="html">
+        <source>Employee created.</source>
+        <target>Empleado requerido.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">625,628</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.workerUpdated" datatype="html">
+        <source>Employee updated.</source>
+        <target>Empleado actualizado.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">642,645</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.workerDeleted" datatype="html">
+        <source>Employee deleted.</source>
+        <target>Empleado borrado.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/dashboard/workers/workers.html</context>
+          <context context-type="linenumber">681,684</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.name" datatype="html">
+        <source>Name *</source>
+        <target>Nombre *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">19,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorName" datatype="html">
+        <source>Required name</source>
+        <target>Nombre requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">32,34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">76,78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorNameMin" datatype="html">
+        <source>Min length is 1 </source>
+        <target>Longitud mínima 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">39,42</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">83,86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorNameMax" datatype="html">
+        <source>Max length is 30 </source>
+        <target>Longitud máxima 30</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">46,49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">90,93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.surname2" datatype="html">
+        <source>Second surname</source>
+        <target>Segundo apellido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">58,60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorSurname2Max" datatype="html">
+        <source>Max length is 30 </source>
+        <target>Longitud máxima 30</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">71,74</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">212,215</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorEmailRequired" datatype="html">
+        <source>Required email</source>
+        <target>Email requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">91,94</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">187,190</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorEmailInvalid" datatype="html">
+        <source>Invalid email </source>
+        <target>Email inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">98,101</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">194,197</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.service" datatype="html">
+        <source>Selected service</source>
+        <target>Servicio Seleccionado</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">107,111</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorServiceRequired" datatype="html">
+        <source>Required service</source>
+        <target>Servicio requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">122,125</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.date" datatype="html">
+        <source>Select a date *</source>
+        <target>Seleccione una fecha *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">131,133</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.dateOption" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ day | date: &apos;yyyy/MM/dd&apos; }}"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">143,144</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorDateRequired" datatype="html">
+        <source>Required date</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">152,155</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">169,172</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.surname1" datatype="html">
+        <source>First surname *</source>
+        <target>Primre apellido *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">166,168</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorSurname1Required" datatype="html">
+        <source>Required first surname</source>
+        <target>Primer apellido requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">179,182</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">107,109</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorSurname1Min" datatype="html">
+        <source>Min length is 1 </source>
+        <target>Longitud mínima 1</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">186,189</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">113,115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorSurname1Max" datatype="html">
+        <source>Max length is 30 </source>
+        <target>Longitud máxima 30</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">193,196</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">119,122</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.dni" datatype="html">
+        <source>DNI/NIE *</source>
+        <target>DNI/NIE *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">202,204</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorDocumentRequired" datatype="html">
+        <source>Required document</source>
+        <target>Documento requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">216,219</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">228,231</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorDocumentInvalid" datatype="html">
+        <source>Invalid document </source>
+        <target>Documento inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">223,226</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">235,238</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.phone" datatype="html">
+        <source>Phone *</source>
+        <target>Teléfono *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">232,234</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorPhoneRequired" datatype="html">
+        <source>Required phone</source>
+        <target>Teléono requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">245,248</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">135,138</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorPhoneInvalid" datatype="html">
+        <source>Invalid phone </source>
+        <target>Teléfono inválido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">252,255</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">142,145</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.worker" datatype="html">
+        <source>Select an employee *</source>
+        <target>Empleado requerido *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">264,266</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2768317752426786893" datatype="html">
+        <source> Select an employee </source>
+        <target>Seleccione un empleado</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">273,275</context>
+        </context-group>
+        <note priority="1" from="description">bookAppointment.selectDefaultWorker</note>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorWorkerRequired" datatype="html">
+        <source>Required employee</source>
+        <target>Empleado requerido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">283,286</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.time" datatype="html">
+        <source>Select an available time *</source>
+        <target>Selecciona una hora disponible *</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">292,295</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.errorTimeRequired" datatype="html">
+        <source>Required time</source>
+        <target>Hora requerida</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">313,316</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">263,266</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bookAppointment.bookAppointment" datatype="html">
+        <source> Book Appointment </source>
+        <target>Pedir Cita</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">332,334</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2205015348982224492" datatype="html">
+        <source> Appointment booked </source>
+        <target>Cita creada</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">339,343</context>
+        </context-group>
+        <note priority="1" from="description">appointment.createdHeader</note>
+      </trans-unit>
+      <trans-unit id="6190020627702392404" datatype="html">
+        <source> Your appointment for the day <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;font-semibold&quot;&gt;"/> <x id="INTERPOLATION" equiv-text="{{ selectedDate() }}"/> <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> with <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;font-semibold&quot;&gt;"/> <x id="INTERPOLATION_1" equiv-text="{{ selectedWorker()!.name }}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;font-semibold&quot;&gt;"/> <x id="INTERPOLATION_2" equiv-text="{{ selectedWorker()!.surname1 }}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <target>Su cita para el dia <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;font-semibold&quot;&gt;"/> <x id="INTERPOLATION" equiv-text="{{ selectedDate() }}"/> <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> con <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;font-semibold&quot;&gt;"/> <x id="INTERPOLATION_1" equiv-text="{{ selectedWorker()!.name }}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;font-semibold&quot;&gt;"/> <x id="INTERPOLATION_2" equiv-text="{{ selectedWorker()!.surname1 }}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">345,350</context>
+        </context-group>
+        <note priority="1" from="description">appointment.createdText1</note>
+      </trans-unit>
+      <trans-unit id="187187500641108332" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{
+            selectedActivity()!.name
+          }}"/></source>
+          <target><x id="INTERPOLATION" equiv-text="{{
+            selectedActivity()!.name
+          }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">353,355</context>
+        </context-group>
+        <note priority="1" from="description">appointment.createdText1</note>
+      </trans-unit>
+      <trans-unit id="7142212517069893420" datatype="html">
+        <source> This code is your only way to edit you appointment, keep it safe </source>
+        <target>Éste código es su única forma de editar su cita, manténgalo a buen recaudo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">362,364</context>
+        </context-group>
+        <note priority="1" from="description">appointment.codeSafe</note>
+      </trans-unit>
+      <trans-unit id="bookAppointment.modalErrorFirstP" datatype="html">
+        <source>Oops, something went wrong.</source>
+        <target>Ups, algo ha ido mal.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/book-appointment/book-appointment.html</context>
+          <context context-type="linenumber">377,379</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="directory.title" datatype="html">
+        <source> Facility Directory </source>
+        <target>Directorio del Edificio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/directory-list.html</context>
+          <context context-type="linenumber">4,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="directory.subtitle" datatype="html">
+        <source> Find and book appointments for any company of our facility </source>
+        <target>Encuentre y agencie citas para cualquier compañia de nuestro edificio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/directory-list.html</context>
+          <context context-type="linenumber">7,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="directory.optionsFloorsAll" datatype="html">
+        <source>All</source>
+        <target>Todas</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/directory-list.html</context>
+          <context context-type="linenumber">37,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="directory.optionsFloors" datatype="html">
+        <source>Floor <x id="INTERPOLATION" equiv-text="{{ floor }}"/></source>
+        <target>Planta</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/directory-list.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="directory.floor" datatype="html">
+        <source> Floor <x id="INTERPOLATION" equiv-text="{{ floor }}"/> </source>
+        <target>Planta <x id="INTERPOLATION" equiv-text="{{ floor }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/directory-list.html</context>
+          <context context-type="linenumber">64,65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="directory.activity_phone" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{ activity.phone }}"/> </source>
+        <target><x id="INTERPOLATION" equiv-text="{{ activity.phone }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/directory-list.html</context>
+          <context context-type="linenumber">94,95</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="directory.activity_scheduleWorkDays" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ activity.workdays[0] | titlecase }}"/> - <x id="INTERPOLATION_1" equiv-text="{{ activity.workdays[activity.workdays.length - 1] | titlecase }}"/> </source>
+        <target><x id="INTERPOLATION" equiv-text="{{ activity.workdays[0] | titlecase }}"/> - <x id="INTERPOLATION_1" equiv-text="{{ activity.workdays[activity.workdays.length - 1] | titlecase }}"/> </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/directory-list.html</context>
+          <context context-type="linenumber">104,106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="directory.activity_scheduleEntryTime" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ activity.entryTime }}"/> - <x id="INTERPOLATION_1" equiv-text="{{ activity.exitTime }}"/></source>
+        <target><x id="INTERPOLATION" equiv-text="{{ activity.entryTime }}"/> - <x id="INTERPOLATION_1" equiv-text="{{ activity.exitTime }}"/> </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/directory-list.html</context>
+          <context context-type="linenumber">109,110</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="directory.button_bookAppointment" datatype="html">
+        <source>Book appointment </source>
+        <target>Pedit cita</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/directory/directory-list/directory-list.html</context>
+          <context context-type="linenumber">123,125</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.appointmentUpdated" datatype="html">
+        <source> Appointment Updated </source>
+        <target>Cita actualizada</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">304,307</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="modal.appointmentCancelled" datatype="html">
+        <source> Appointment Cancelled </source>
+        <target>Cita Cancelada</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/find-appointment/find-appointment.html</context>
+          <context context-type="linenumber">349,352</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="navbar.directory-link" datatype="html">
+        <source>Directory</source>
+        <target>Directorio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navbar/navbar.html</context>
+          <context context-type="linenumber">14,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="navbar.appointments-link" datatype="html">
+        <source>My Appointments</source>
+        <target>Mis Citas</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navbar/navbar.html</context>
+          <context context-type="linenumber">21,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="navbar.find-appointment-link" datatype="html">
+        <source>Find Appointment</source>
+        <target>Encuente su Cita</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navbar/navbar.html</context>
+          <context context-type="linenumber">28,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="navbar.button_login" datatype="html">
+        <source>Login </source>
+        <target>Entrar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/navbar/navbar.html</context>
+          <context context-type="linenumber">68,69</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

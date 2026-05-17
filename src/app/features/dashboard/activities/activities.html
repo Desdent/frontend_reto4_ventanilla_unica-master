@@ -1,0 +1,547 @@
+<div class="flex flex-col gap-10">
+  <div class="card w-full bg-primary p-10 rounded-2xl border-gray-200 shadow-sm">
+    <p class="text-text text-4xl font-semibold" i18n="@@dashboard.activitiesTitle">Services</p>
+  </div>
+
+  <div
+    class="card w-full bg-card p-10 rounded-2xl border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
+  >
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+      <input
+        type="text"
+        placeholder="Search Services..."
+        class="w-full md:w-1/3 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+        (keyup)="onSearch($event)"
+      />
+
+      <button
+        aria-label="Add Activity"
+        class="bg-hover-border text-text px-5 py-2 rounded-lg cursor-pointer transition hover:bg-hover"
+        (click)="modalService.set(true)"
+      >
+        <span class="pi pi-plus"></span>
+      </button>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full border border-gray-200 rounded-xl overflow-hidden">
+        <thead class="bg-hover-border">
+          <tr>
+            <th
+              class="text-left p-4 border-b text-text hover:bg-primary cursor-pointer"
+              (click)="orderByAndReload('name')"
+              i18n="@@adminDashboard.appointmentsEmployee"
+            >
+              Name
+              @if (orderField().toLocaleLowerCase() == 'name') {
+                @if (orderBy().toLocaleLowerCase() == 'asc') {
+                  <span class="pi pi-sort-up"></span>
+                } @else {
+                  <span class="pi pi-sort-down"></span>
+                }
+              } @else {
+                <span class="pi pi-sort"></span>
+              }
+            </th>
+            <th
+              class="text-left p-4 border-b text-text hover:bg-primary cursor-pointer"
+              (click)="orderByAndReload('field')"
+              i18n="@@adminDashboard.appointmentsNameUser"
+            >
+              Field
+              @if (orderField().toLocaleLowerCase() == 'field') {
+                @if (orderBy().toLocaleLowerCase() == 'asc') {
+                  <span class="pi pi-sort-up"></span>
+                } @else {
+                  <span class="pi pi-sort-down"></span>
+                }
+              } @else {
+                <span class="pi pi-sort"></span>
+              }
+            </th>
+            <th
+              class="text-left p-4 border-b text-text hover:bg-primary cursor-pointer"
+              (click)="orderByAndReload('room')"
+              i18n="@@adminDashboard.appointmentsSurname"
+            >
+              Rooms
+              @if (orderField().toLocaleLowerCase() == 'rooms') {
+                @if (orderBy().toLocaleLowerCase() == 'asc') {
+                  <span class="pi pi-sort-up"></span>
+                } @else {
+                  <span class="pi pi-sort-down"></span>
+                }
+              } @else {
+                <span class="pi pi-sort"></span>
+              }
+            </th>
+            <th
+              class="text-left p-4 border-b text-text hover:bg-primary cursor-pointer"
+              (click)="orderByAndReload('floor')"
+              i18n="@@adminDashboard.appointmentsSurname"
+            >
+              Floors
+              @if (orderField().toLocaleLowerCase() == 'floor') {
+                @if (orderBy().toLocaleLowerCase() == 'asc') {
+                  <span class="pi pi-sort-up"></span>
+                } @else {
+                  <span class="pi pi-sort-down"></span>
+                }
+              } @else {
+                <span class="pi pi-sort"></span>
+              }
+            </th>
+            <th
+              class="text-left p-4 border-b text-text"
+              (click)="orderByAndReload('serviceName')"
+              i18n="@@adminDashboard.appointmentsService"
+            >
+              Actions
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @if (loading()) {
+            @for (item of [1, 2, 3, 4, 5]; track $index) {
+              <tr>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-card rounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-card rounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-card rounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-cardrounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 w-20 bg-card rounded animate-pulse"></div>
+                </td>
+              </tr>
+            }
+          } @else {
+            @if (!activities()?.length) {
+              No appointments to show
+            } @else {
+              @for (activity of activities(); track $index) {
+                <tr class="hover:bg-gray-50 transition">
+                  <td class="p-4 border-b text-text-contrast">{{ activity.name }}</td>
+                  <td class="p-4 border-b text-text-contrast">{{ activity.fieldName }}</td>
+                  <td class="p-4 border-b text-text-contrast">
+                    @for (room of activity.rooms; track $index) {
+                      @if ($last) {
+                        {{ room }}
+                      } @else {
+                        {{ room }},
+                      }
+                    }
+                  </td>
+                  <td class="p-4 border-b text-text-contrast">
+                    {{ getUniqueFloors(activity.floors) }}
+                  </td>
+                  <td class="p-4 border-b text-center text-text-contrast">
+                    <div class="flex justify-center gap-2 w-full">
+                      <button
+                        aria-label="Edit Activity"
+                        class="bg-hover-border text-text px-3 py-1 justify-center rounded cursor-pointer transition hover:bg-hover"
+                        i18n="button.edit"
+                        (click)="selectActivity(activity)"
+                      >
+                        <span class="pi pi-pencil"></span>
+                      </button>
+                      <button
+                        aria-label="Delete Activity"
+                        class="bg-red-button text-text px-3 py-1 justify-center rounded cursor-pointer transition hover:bg-red-button-hover"
+                        i18n="button.delete"
+                        (click)="confirmDelete(activity)"
+                      >
+                        <span class="pi pi-trash"></span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            }
+          }
+        </tbody>
+      </table>
+      <div class="flex justify-center items-center gap-4 mt-6">
+        @if (activities() && activities()!.length > 0) {
+          <button
+            aria-label="Previous"
+            class="px-4 py-2 bg-hover-border rounded disabled:opacity-50 cursor-pointer text-text-contrast"
+            (click)="prevPage()"
+            [disabled]="page() === 1"
+          >
+            Prev
+          </button>
+
+          <!--  If i've understood it correctly constructor builds an array in "real" time -->
+          @for (p of [].constructor(totalPages()); let i = $index; track $index) {
+            <button
+              aria-label="Page Number"
+              class="px-3 py-1 rounded bg-primary cursor-pointer"
+              [class.bg-primary]="page() === i + 1"
+              [class.text-text]="page() === i + 1"
+              (click)="goToPage(i + 1)"
+            >
+              {{ i + 1 }}
+            </button>
+          }
+
+          <button
+            aria-label="Next"
+            class="px-4 py-2 bg-hover-border rounded disabled:opacity-50 cursor-pointer text-text-contrast"
+            (click)="nextPage()"
+            [disabled]="page() === totalPages()"
+          >
+            Next
+          </button>
+        } @else {
+          <div class="w-full text-center" i18n="@@dashboardEmployee.noRequests">
+            No requests to show
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CREATE SERVICE -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Create Service"
+    [modal]="true"
+    [visible]="modalService()"
+    styleClass="min-w-2/5 p-4 bg-card text-text-contrast"
+    (onHide)="modalService.set(false)"
+  >
+    @if (createServiceForm) {
+      <form class="grid grid-cols-2 gap-6" [formGroup]="createServiceForm" (ngSubmit)="onSubmit()">
+        <!-- LEFT -->
+        <div class="flex flex-col gap-4">
+          <!-- Name -->
+          <div class="flex flex-col min-h-24">
+            <label class="font-semibold pb-2 text-hover" i18n="@@form.name"> Name * </label>
+
+            <input
+              type="text"
+              formControlName="name"
+              class="bg-card p-2 text-sm rounded w-full border border-hover-border"
+              placeholder="Service name"
+            />
+
+            @if (nameControl?.errors?.['required'] && nameControl?.touched) {
+              <span class="text-sm text-red-400 font-semibold pt-1"> Name is required </span>
+            }
+          </div>
+
+          <!-- Extra Time -->
+          <div class="flex flex-col min-h-24">
+            <label class="font-semibold pb-2 text-hover"> Extra Time * </label>
+
+            <input
+              type="number"
+              formControlName="extraTime"
+              class="bg-card p-2 text-sm rounded w-full border border-hover-border"
+              placeholder="Minutes"
+            />
+
+            @if (extraTimeControl?.errors?.['required'] && extraTimeControl?.touched) {
+              <span class="text-sm text-red-400 font-semibold pt-1"> Required extra time </span>
+            }
+
+            @if (createServiceForm.errors?.['isExtraTimeInvalid'] && extraTimeControl?.touched) {
+              <span class="text-sm text-red-400 font-semibold pt-1">
+                Max be higher than 20% of duration
+              </span>
+            }
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="flex flex-col gap-4">
+          <!-- Appointment Duration -->
+          <div class="flex flex-col min-h-24">
+            <label class="font-semibold pb-2 text-hover"> Appointment Duration * </label>
+
+            <select
+              name="duration"
+              id="duration"
+              class="bg-card p-2 text-sm rounded w-full border border-hover-border"
+              formControlName="appointmentDuration"
+            >
+              <option value="" selected disabled>Select duration</option>
+              @for (duration of durations; track $index) {
+                <option value="{{ duration }}">{{ duration }}</option>
+              }
+            </select>
+            @if (
+              appointmentDurationControl?.errors?.['required'] &&
+              appointmentDurationControl?.touched
+            ) {
+              <span class="text-sm text-red-400 font-semibold pt-1"> Required duration </span>
+            }
+
+            @if (appointmentDurationControl?.errors?.['invalidDuration']) {
+              <span class="text-sm text-red-400 font-semibold pt-1"> Invalid duration </span>
+            }
+          </div>
+
+          <!-- FIELD -->
+          <div class="flex flex-col min-h-24">
+            <label class="font-semibold pb-2 text-hover"> Field * </label>
+
+            <select
+              name=""
+              id=""
+              formControlName="fieldId"
+              class="bg-card p-2 text-sm rounded w-full border border-hover-border"
+            >
+              <option value="" selected disabled>Select a field</option>
+              @for (field of fields(); track $index) {
+                <option value="{{ field.id }}">{{ field.name }}</option>
+              }
+            </select>
+
+            @if (fieldIdControl?.errors?.['required'] && fieldIdControl?.touched) {
+              <span class="text-sm text-red-400 font-semibold pt-1"> Required field </span>
+            }
+          </div>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="col-span-2 flex justify-between">
+          <button
+            aria-label="Create Service"
+            type="submit"
+            class="bg-primary rounded p-2 text-text hover:bg-hover ml-auto cursor-pointer"
+          >
+            Create Service
+          </button>
+        </div>
+      </form>
+    }
+  </p-dialog>
+</div>
+
+<!-- MODAL UPDATE SERVICE -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Update Service"
+    [modal]="true"
+    [visible]="modalUpdateService()"
+    styleClass="min-w-2/5 p-4 bg-card text-text-contrast"
+    (onHide)="modalUpdateService.set(false)"
+  >
+    @if (updateServiceForm) {
+      <form class="grid grid-cols-2 gap-6" [formGroup]="updateServiceForm" (ngSubmit)="onUpdate()">
+        <!-- LEFT -->
+        <div class="flex flex-col gap-4">
+          <!-- Name -->
+          <div class="flex flex-col min-h-24">
+            <label class="font-semibold pb-2 text-hover" i18n="@@form.name"> Name * </label>
+
+            <input
+              type="text"
+              formControlName="name"
+              class="bg-card p-2 text-sm rounded w-full border border-hover-border"
+              placeholder="Service name"
+            />
+
+            @if (updateNameControl?.errors?.['required'] && updateNameControl?.touched) {
+              <span class="text-sm text-red-400 font-semibold pt-1"> Name is required </span>
+            }
+          </div>
+
+          <!-- Extra Time -->
+          <div class="flex flex-col min-h-24">
+            <label class="font-semibold pb-2 text-hover"> Extra Time * </label>
+
+            <input
+              type="number"
+              formControlName="extraTime"
+              class="bg-card p-2 text-sm rounded w-full border border-hover-border"
+              placeholder="Minutes"
+            />
+
+            @if (updateExtraTimeControl?.errors?.['required'] && updateExtraTimeControl?.touched) {
+              <span class="text-sm text-red-400 font-semibold pt-1"> Required extra time </span>
+            }
+
+            @if (
+              updateServiceForm.errors?.['isExtraTimeInvalid'] && updateExtraTimeControl?.touched
+            ) {
+              <span class="text-sm text-red-400 font-semibold pt-1"> Max 20% of duration </span>
+            }
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="flex flex-col gap-4">
+          <!-- Appointment Duration -->
+          <div class="flex flex-col min-h-24">
+            <label class="font-semibold pb-2 text-hover"> Appointment Duration * </label>
+
+            <select
+              name="duration"
+              id="duration"
+              class="bg-card p-2 text-sm rounded w-full border border-hover-border"
+              formControlName="appointmentDuration"
+            >
+              <option value="" selected disabled>Select duration</option>
+              @for (duration of durations; track $index) {
+                <option value="{{ duration }}">{{ duration }}</option>
+              }
+            </select>
+
+            @if (
+              updateAppointmentDurationControl?.errors?.['required'] &&
+              updateAppointmentDurationControl?.touched
+            ) {
+              <span class="text-sm text-red-400 font-semibold pt-1"> Required duration </span>
+            }
+
+            @if (updateAppointmentDurationControl?.errors?.['invalidDuration']) {
+              <span class="text-sm text-red-400 font-semibold pt-1"> Invalid duration </span>
+            }
+          </div>
+
+          <!-- FIELD -->
+          <div class="flex flex-col min-h-24">
+            <label class="font-semibold pb-2 text-hover"> Field * </label>
+
+            <select
+              name="field"
+              id="field"
+              formControlName="fieldId"
+              class="bg-card p-2 text-sm rounded w-full border border-hover-border"
+            >
+              <option value="" selected disabled>Select a field</option>
+              @for (field of fields(); track $index) {
+                <option value="{{ field.id }}">{{ field.name }}</option>
+              }
+            </select>
+
+            @if (updateFieldIdControl?.errors?.['required'] && fieldIdControl?.touched) {
+              <span class="text-sm text-red-400 font-semibold pt-1"> Required field </span>
+            }
+          </div>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="col-span-2 flex justify-between">
+          <button
+            aria-label="Update Service"
+            type="submit"
+            class="bg-primary rounded p-2 text-text hover:bg-hover ml-auto cursor-pointer"
+          >
+            Update Service
+          </button>
+        </div>
+      </form>
+    }
+  </p-dialog>
+</div>
+
+<!-- MODAL OK CREATE  -->
+
+<div class="card flex justify-center">
+  <p-dialog
+    header="Service created"
+    [modal]="true"
+    [visible]="modalServiceOk()"
+    styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+    [closable]="false"
+    [closeOnEscape]="false"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@modal.activityCreated">Service created.</p>
+    </div>
+  </p-dialog>
+</div>
+
+<!-- MODAL OK UPDATE  -->
+
+<div class="card flex justify-center">
+  <p-dialog
+    header="Service updated"
+    [modal]="true"
+    [visible]="modalUpdateServiceOk()"
+    styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+    [closable]="false"
+    [closeOnEscape]="false"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@modal.serviceCreated">Service updated.</p>
+    </div>
+  </p-dialog>
+</div>
+
+<!-- MODAL CONFIRM DELETE -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Confirm Action"
+    [modal]="true"
+    [visible]="modalDeleteConfirm()"
+    styleClass="w-80 p-4 bg-red-400  text-text"
+    (onHide)="modalDeleteConfirm.set(false)"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@modal.modalConfirmFirstP">Are you sure?</p>
+    </div>
+    <div class="flex justify-end gap-2">
+      <p-button
+        aria-label="Confirm Delete"
+        label="Confirm"
+        severity="secondary"
+        class="bg-card rounded p-2 transition hover:bg-hover text-red-600 mb-1 cursor-pointer hover:text-text"
+        (click)="delete()"
+      />
+    </div>
+  </p-dialog>
+</div>
+
+<!-- MODAL OK DELETE -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Success"
+    [modal]="true"
+    [visible]="modalDeleteOk()"
+    styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+    [closable]="false"
+    [closeOnEscape]="false"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@modal.serviceDeleted">Service deleted.</p>
+    </div>
+  </p-dialog>
+</div>
+
+<!-- MODAL ERROR -->
+
+<div class="card flex justify-center">
+  <p-dialog
+    header="Error"
+    [modal]="true"
+    [visible]="modalError()"
+    styleClass="w-80 p-4 border border-red-600 bg-red-400 text-text"
+    (onHide)="modalError.set(false)"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@form.modalErrorFirstP">Oops, something went wrong.</p>
+      <p class="pb-2">{{ errorMsg() }}</p>
+    </div>
+    <div class="flex justify-end gap-2">
+      <p-button
+        aria-label="Close"
+        label="Close"
+        severity="secondary"
+        (click)="modalError.set(false)"
+      />
+    </div>
+  </p-dialog>
+</div>

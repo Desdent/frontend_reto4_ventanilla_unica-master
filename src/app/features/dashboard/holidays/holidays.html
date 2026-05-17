@@ -1,0 +1,870 @@
+<div class="flex flex-col gap-10">
+  <div class="card w-full bg-primary p-10 rounded-2xl border-gray-200 shadow-sm">
+    <p class="text-text text-4xl font-semibold" i18n="@@dashboard.vacations">Vacations Requests</p>
+  </div>
+
+  <!-- ADMIN PART -->
+  @if (role() == roleAdmin()) {
+    <div
+      class="card w-full bg-card p-10 rounded-2xl border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
+    >
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <input
+          type="text"
+          placeholder="Search requests..."
+          class="w-full md:w-1/3 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary text-text-contrast"
+          (keyup)="onSearch($event)"
+        />
+
+        <button
+          aria-label="Add Request"
+          class="bg-hover-border text-text px-5 py-2 rounded-lg cursor-pointer transition hover:bg-hover"
+          (click)="modalVacation.set(true)"
+        >
+          <span class="pi pi-plus"></span>
+        </button>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border border-gray-200 rounded-xl overflow-hidden">
+          <thead class="bg-hover-border">
+            <tr>
+              <th
+                class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+                (click)="orderByAndReload('workerName')"
+                i18n="@@dashboardAdmin.holidaysWorker"
+              >
+                Employee
+                @if (orderField().toLocaleLowerCase() == 'workername') {
+                  @if (orderBy().toLocaleLowerCase() == 'asc') {
+                    <span class="pi pi-sort-up"></span>
+                  } @else {
+                    <span class="pi pi-sort-down"></span>
+                  }
+                } @else {
+                  <span class="pi pi-sort"></span>
+                }
+              </th>
+              <th
+                class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+                (click)="orderByAndReload('workerSurname1')"
+                i18n="@@dashboardAdmin.holidaysWorkerSurname1"
+              >
+                Surname
+                @if (orderField().toLocaleLowerCase() == 'workersurname1') {
+                  @if (orderBy().toLocaleLowerCase() == 'asc') {
+                    <span class="pi pi-sort-up"></span>
+                  } @else {
+                    <span class="pi pi-sort-down"></span>
+                  }
+                } @else {
+                  <span class="pi pi-sort"></span>
+                }
+              </th>
+              <th
+                class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+                (click)="orderByAndReload('startDate')"
+                i18n="@@dashboardAdmin.holidaysStartDate"
+              >
+                Start Date
+                @if (orderField().toLocaleLowerCase() == 'startdate') {
+                  @if (orderBy().toLocaleLowerCase() == 'asc') {
+                    <span class="pi pi-sort-up"></span>
+                  } @else {
+                    <span class="pi pi-sort-down"></span>
+                  }
+                } @else {
+                  <span class="pi pi-sort"></span>
+                }
+              </th>
+              <th
+                class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+                (click)="orderByAndReload('endDate')"
+                i18n="@@dashboardAdmin.holidaysEndDate"
+              >
+                End Date
+                @if (orderField().toLocaleLowerCase() == 'enddate') {
+                  @if (orderBy().toLocaleLowerCase() == 'asc') {
+                    <span class="pi pi-sort-up"></span>
+                  } @else {
+                    <span class="pi pi-sort-down"></span>
+                  }
+                } @else {
+                  <span class="pi pi-sort"></span>
+                }
+              </th>
+              <th
+                class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+                (click)="orderByAndReload('type')"
+                i18n="@@dashboardAdmin.holidaysType"
+              >
+                Type
+                @if (orderField().toLocaleLowerCase() == 'type') {
+                  @if (orderBy().toLocaleLowerCase() == 'asc') {
+                    <span class="pi pi-sort-up"></span>
+                  } @else {
+                    <span class="pi pi-sort-down"></span>
+                  }
+                } @else {
+                  <span class="pi pi-sort"></span>
+                }
+              </th>
+              <th
+                class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+                (click)="orderByAndReload('status')"
+                i18n="@@dashboardAdmin.holidaysStatus"
+              >
+                Status
+                @if (orderField().toLocaleLowerCase() == 'status') {
+                  @if (orderBy().toLocaleLowerCase() == 'asc') {
+                    <span class="pi pi-sort-up"></span>
+                  } @else {
+                    <span class="pi pi-sort-down"></span>
+                  }
+                } @else {
+                  <span class="pi pi-sort"></span>
+                }
+              </th>
+              <th class="text-left p-4 border-b text-text" i18n="@@dashboardAdmin.holidaysActions">
+                Actions
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            @if (loading()) {
+              @for (item of [1, 2, 3, 4, 5]; track $index) {
+                <tr>
+                  <td class="p-4 border-b">
+                    <div class="h-4 bg-bg rounded animate-pulse"></div>
+                  </td>
+                  <td class="p-4 border-b">
+                    <div class="h-4 bg-bg rounded animate-pulse"></div>
+                  </td>
+                  <td class="p-4 border-b">
+                    <div class="h-4 bg-bg rounded animate-pulse"></div>
+                  </td>
+                  <td class="p-4 border-b">
+                    <div class="h-4 bg-bgrounded animate-pulse"></div>
+                  </td>
+                  <td class="p-4 border-b">
+                    <div class="h-4 w-20 bg-bg rounded animate-pulse"></div>
+                  </td>
+                </tr>
+              }
+            } @else {
+              @for (vacation of vacations(); track $index) {
+                <tr class="hover:bg-bg transition">
+                  <td class="p-4 border-b text-text-contrast">
+                    {{ vacation.userName | titlecase }}
+                  </td>
+                  <td class="p-4 border-b text-text-contrast">
+                    {{ vacation.userSurname1 | titlecase }}
+                  </td>
+                  <td class="p-4 border-b text-text-contrast">{{ vacation.startDate }}</td>
+                  <td class="p-4 border-b text-text-contrast">{{ vacation.endDate }}</td>
+                  <td class="p-4 border-b text-text-contrast">{{ vacation.type | titlecase }}</td>
+                  <td class="p-4 border-b">
+                    <span class="bg-hover-border py-1 px-2 rounded text-text">{{
+                      vacation.status | uppercase
+                    }}</span>
+                  </td>
+                  <td class="p-4 border-b text-text-contrast">
+                    <div class="gap-2 grid grid-cols-2">
+                      @if (vacation.status == pendingStatus()) {
+                        <button
+                          aria-label="Approve Request"
+                          class="bg-green-button text-text px-3 py-1 rounded cursor-pointer transition hover:bg-green-button-hover col-span-1"
+                          i18n="buttton.edit"
+                          (click)="setApprove(vacation)"
+                        >
+                          <span class="pi pi-check"></span>
+                        </button>
+
+                        <button
+                          aria-label="Deny Request"
+                          class="bg-red-button text-text px-3 py-1 rounded cursor-pointer transition hover:bg-red-button-hover col-span-1"
+                          i18n="buttton.edit"
+                          (click)="setDeny(vacation)"
+                        >
+                          <span class="pi pi-ban"></span>
+                        </button>
+                      }
+                    </div>
+                  </td>
+                </tr>
+              }
+            }
+          </tbody>
+        </table>
+        <div class="flex justify-center items-center gap-4 mt-6">
+          @if (vacations() && vacations()!.length > 0) {
+            <button
+              aria-label="Previous"
+              class="px-4 py-2 bg-hover-border rounded disabled:opacity-50 cursor-pointer text-text-contrast"
+              (click)="prevPage()"
+              [disabled]="page() === 1"
+            >
+              Prev
+            </button>
+
+            <!--  If i've understood it correctly constructor builds an array in "real" time -->
+            @for (p of [].constructor(totalPages()); let i = $index; track $index) {
+              <button
+                aria-label="Page Number"
+                class="px-3 py-1 rounded bg-primary cursor-pointer"
+                [class.bg-primary]="page() === i + 1"
+                [class.text-text]="page() === i + 1"
+                (click)="goToPage(i + 1)"
+              >
+                {{ i + 1 }}
+              </button>
+            }
+
+            <button
+              aria-label="Next"
+              class="px-4 py-2 bg-hover-border rounded disabled:opacity-50 cursor-pointer text-text-contrast"
+              (click)="nextPage()"
+              [disabled]="page() === totalPages()"
+            >
+              Next
+            </button>
+          } @else {
+            <div class="w-full text-center" i18n="@@dashboardAdmin.noRequests">
+              No requests to show
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+    <!-- WORKER PART -->
+  } @else {
+    <div
+      class="card w-full bg-card p-10 rounded-2xl border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
+    >
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <input
+          type="text"
+          placeholder="Search requests..."
+          class="w-full md:w-1/3 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary text-text-contrast"
+          (keyup)="onSearch($event)"
+        />
+
+        <button
+          aria-label="Add Request"
+          class="bg-hover-border text-text px-5 py-2 rounded-lg cursor-pointer transition hover:bg-hover"
+          (click)="modalVacation.set(true)"
+        >
+          <span class="pi pi-plus"></span>
+        </button>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border border-gray-200 rounded-xl overflow-hidden">
+          <thead class="bg-hover-border">
+            <tr>
+              <th
+                class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+                (click)="orderByAndReload('startDate')"
+                i18n="@@dashboardEmployee.holidaysStartDate"
+              >
+                Start Date
+                @if (orderField().toLocaleLowerCase() == 'startdate') {
+                  @if (orderBy().toLocaleLowerCase() == 'asc') {
+                    <span class="pi pi-sort-up"></span>
+                  } @else {
+                    <span class="pi pi-sort-down"></span>
+                  }
+                } @else {
+                  <span class="pi pi-sort"></span>
+                }
+              </th>
+              <th
+                class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+                (click)="orderByAndReload('endDate')"
+                i18n="@@dashboardEmployee.holidaysEndDate"
+              >
+                End Date
+                @if (orderField().toLocaleLowerCase() == 'enddate') {
+                  @if (orderBy().toLocaleLowerCase() == 'asc') {
+                    <span class="pi pi-sort-up"></span>
+                  } @else {
+                    <span class="pi pi-sort-down"></span>
+                  }
+                } @else {
+                  <span class="pi pi-sort"></span>
+                }
+              </th>
+              <th
+                class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+                (click)="orderByAndReload('type')"
+                i18n="@@dashboardEmployee.holidaysType"
+              >
+                Type
+                @if (orderField().toLocaleLowerCase() == 'type') {
+                  @if (orderBy().toLocaleLowerCase() == 'asc') {
+                    <span class="pi pi-sort-up"></span>
+                  } @else {
+                    <span class="pi pi-sort-down"></span>
+                  }
+                } @else {
+                  <span class="pi pi-sort"></span>
+                }
+              </th>
+              <th
+                class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+                (click)="orderByAndReload('status')"
+                i18n="@@dashboardEmployee.holidaysStatus"
+              >
+                Status
+                @if (orderField().toLocaleLowerCase() == 'status') {
+                  @if (orderBy().toLocaleLowerCase() == 'asc') {
+                    <span class="pi pi-sort-up"></span>
+                  } @else {
+                    <span class="pi pi-sort-down"></span>
+                  }
+                } @else {
+                  <span class="pi pi-sort"></span>
+                }
+              </th>
+              <th
+                class="text-left p-4 border-b text-text"
+                i18n="@@dashboardEmployee.holidaysActions"
+              >
+                Actions
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            @if (loading()) {
+              @for (item of [1, 2, 3, 4, 5]; track $index) {
+                <tr>
+                  <td class="p-4 border-b">
+                    <div class="h-4 bg-bg rounded animate-pulse"></div>
+                  </td>
+                  <td class="p-4 border-b">
+                    <div class="h-4 bg-bg rounded animate-pulse"></div>
+                  </td>
+                  <td class="p-4 border-b">
+                    <div class="h-4 bg-bgrounded animate-pulse"></div>
+                  </td>
+                  <td class="p-4 border-b">
+                    <div class="h-4 w-20 bg-bg rounded animate-pulse"></div>
+                  </td>
+                </tr>
+              }
+            } @else {
+              @for (vacation of vacations(); track $index) {
+                <tr class="hover:bg-bg transition">
+                  <td class="p-4 border-b text-text-contrast">{{ vacation.startDate }}</td>
+                  <td class="p-4 border-b text-text-contrast">{{ vacation.endDate }}</td>
+                  <td class="p-4 border-b text-text-contrast">{{ vacation.type | titlecase }}</td>
+                  <td class="p-4 border-b text-text-contrast">
+                    <span class="bg-hover-border py-1 px-2 rounded text-text">{{
+                      vacation.status | uppercase
+                    }}</span>
+                  </td>
+                  <td class="p-4 border-b text-text-contrast">
+                    <div class="flex gap-2">
+                      @if (vacation.status == pendingStatus()) {
+                        <button
+                          aria-label="Edit Request"
+                          class="bg-hover-border text-text px-3 py-1 rounded cursor-pointer transition hover:bg-hover ml-auto"
+                          i18n="buttton.edit"
+                          (click)="selectRequest(vacation)"
+                        >
+                          <span class="pi pi-pencil"></span>
+                        </button>
+
+                        <button
+                          aria-label="Delete Request"
+                          class="bg-primary text-text px-3 py-1 rounded cursor-pointer transition hover:bg-hover"
+                          i18n="buttton.delete"
+                          (click)="confirmDelete(vacation)"
+                        >
+                          <span class="pi pi-trash"></span>
+                        </button>
+                      }
+                    </div>
+                  </td>
+                </tr>
+              }
+            }
+          </tbody>
+        </table>
+        <div class="flex justify-center items-center gap-4 mt-6">
+          @if (vacations() && vacations()!.length > 0) {
+            <button
+              aria-label="Previous"
+              class="px-4 py-2 bg-hover-border rounded disabled:opacity-50 cursor-pointer text-text-contrast"
+              (click)="prevPage()"
+              [disabled]="page() === 1"
+            >
+              Prev
+            </button>
+
+            <!--  If i've understood it correctly constructor builds an array in "real" time -->
+            @for (p of [].constructor(totalPages()); let i = $index; track $index) {
+              <button
+                aria-label="Page Number"
+                class="px-3 py-1 rounded bg-primary cursor-pointer"
+                [class.bg-primary]="page() === i + 1"
+                [class.text-text]="page() === i + 1"
+                (click)="goToPage(i + 1)"
+              >
+                {{ i + 1 }}
+              </button>
+            }
+
+            <button
+              aria-label="Next"
+              class="px-4 py-2 bg-hover-border rounded disabled:opacity-50 cursor-pointer text-text-contrast"
+              (click)="nextPage()"
+              [disabled]="page() === totalPages()"
+            >
+              Next
+            </button>
+          } @else {
+            <div class="w-full text-center" i18n="@@dashboardEmployee.noRequests">
+              No requests to show
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- MODAL FORM REQUESTS -->
+  <div class="card flex justify-center">
+    <p-dialog
+      header="Days Request"
+      [modal]="true"
+      [visible]="modalVacation()"
+      styleClass="min-w-2/5 p-4 bg-card text-text-contrast"
+      (onHide)="modalVacation.set(false)"
+    >
+      @if (createRequestForm) {
+        <form class="grid grid-cols-2 gap-6" [formGroup]="createRequestForm">
+          <!-- LEFT -->
+          <div>
+            <!-- Type -->
+            <div class="flex flex-col pb-6 min-h-30">
+              <label for="type" class="font-semibold pb-2 text-hover" i18n="@@form.type"
+                >Type *</label
+              >
+              <select
+                name="type"
+                id="type"
+                formControlName="type"
+                class="bg-card p-1 text-sm rounded w-full border border-hover-border text-text-contrast"
+              >
+                <option value="" disabled selected>Select a type</option>
+
+                @for (vacation of vacationTypes; track $index) {
+                  <option value="{{ vacation }}">{{ vacation | titlecase }}</option>
+                }
+              </select>
+              @if (typeControl?.errors?.['required'] && typeControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@form.errorTypeRequired"
+                  >Required type</span
+                >
+              }
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+          <div>
+            <!-- Start Date -->
+            <div class="flex flex-col min-h-30">
+              <label for="address" class="font-semibold pb-2 text-hover" i18n="@@form.startDate"
+                >Start Date *</label
+              >
+              <input
+                type="date"
+                id="startDate"
+                formControlName="startDate"
+                class="bg-card p-1 text-sm rounded w-full border border-hover-border text-text-contrast"
+              />
+              @if (startDateControl?.errors?.['required'] && startDateControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@form.errorStartDateRequired"
+                  >Required startDate</span
+                >
+              } @else {
+                @if (
+                  startDateControl?.errors?.['invalidBeforeToday'] && startDateControl?.touched
+                ) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="@@form.errorInvalidBeforeToday"
+                    >Must be a valid date</span
+                  >
+                }
+                @if (
+                  createRequestForm.errors?.['invalidVacationStart'] && startDateControl?.touched
+                ) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="@@form.errorStartDate14Days"
+                    >Start must be at least after 14</span
+                  >
+                }
+              }
+              @if (createRequestForm.errors?.['invalidDateRange'] && startDateControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@form.errorStartDateAfterEndDate"
+                  >Start date must be before End Date</span
+                >
+              }
+            </div>
+
+            <!-- End Date -->
+            <div class="flex flex-col min-h-30">
+              <label for="cif" class="font-semibold pb-2 text-hover" i18n="@@form.endDate"
+                >End Date *</label
+              >
+              <input
+                type="date"
+                id="endDate"
+                formControlName="endDate"
+                class="bg-card p-1 text-sm rounded w-full border border-hover-border text-text-contrast"
+                placeholder="A12345678"
+              />
+              @if (endDateControl?.errors?.['required'] && endDateControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@form.errorEndDateRequired"
+                  >Required End Date</span
+                >
+              } @else {
+                @if (createRequestForm.errors?.['invalidDateRange'] && endDateControl?.touched) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="@@form.errorEndDateBeforeStartDate"
+                    >End date must be after Start Date
+                  </span>
+                }
+              }
+            </div>
+          </div>
+
+          <div class="col-span-2 min-w-full flex justify-between">
+            <div class="gap-2 flex"></div>
+            <div class="flex justify-end">
+              <button
+                aria-label="Add Request"
+                type="button"
+                class="bg-primary rounded p-2 transition hover:bg-hover text-text mb-1 cursor-pointer"
+                i18n="@@form.addRequest"
+                (click)="onSubmit()"
+              >
+                Add Request
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="card flex justify-center">
+          <p-dialog
+            header="Error"
+            [modal]="true"
+            [visible]="modalError()"
+            styleClass="w-80 p-4 border border-red-600 bg-red-400 text-text"
+            (onHide)="modalError.set(false)"
+          >
+            <div class="gap-4 mb-4">
+              <p class="pb-2" i18n="@@form.modalErrorFirstP">Oops, something went wrong.</p>
+              <p class="pb-2">{{ errorMsg() }}</p>
+            </div>
+            <div class="flex justify-end gap-2">
+              <p-button
+                aria-label="Close"
+                label="Close"
+                severity="secondary"
+                (click)="modalError.set(false)"
+              />
+            </div>
+          </p-dialog>
+        </div>
+        <div class="card flex justify-center">
+          <p-dialog
+            header="Request created"
+            [modal]="true"
+            [visible]="modalOk()"
+            styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+          >
+            <div class="gap-4 mb-4">
+              <p class="pb-2" i18n="@@form.modalRequestCreated">Request created.</p>
+            </div>
+          </p-dialog>
+        </div>
+      }
+    </p-dialog>
+  </div>
+
+  <!-- MODAL FORM UPDATE -->
+  <div class="card flex justify-center">
+    <p-dialog
+      header="Update Days Request"
+      [modal]="true"
+      [visible]="modalUpdateVacation()"
+      styleClass="min-w-2/5 p-4 bg-card"
+      (onHide)="modalUpdateVacation.set(false)"
+    >
+      @if (updateRequestForm) {
+        <form
+          class="grid grid-cols-2 gap-6"
+          [formGroup]="updateRequestForm"
+          (submit)="onSubmitUpdate()"
+        >
+          <!-- LEFT -->
+          <div>
+            <!-- Type -->
+            <div class="flex flex-col pb-6 min-h-30">
+              <label for="type" class="font-semibold pb-2 text-hover" i18n="@@form.type"
+                >Type *</label
+              >
+              <select
+                name="type"
+                id="type"
+                formControlName="type"
+                class="bg-card p-1 text-sm rounded w-full border border-hover-border text-text-contrast"
+              >
+                <option value="" disabled selected>Select a type</option>
+
+                @for (vacation of vacationTypes; track $index) {
+                  <option value="{{ vacation }}">{{ vacation | titlecase }}</option>
+                }
+              </select>
+              @if (updateTypeControl?.errors?.['required'] && updateTypeControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@form.errorTypeRequired"
+                  >Required type</span
+                >
+              }
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+          <div>
+            <!-- Start Date -->
+            <div class="flex flex-col min-h-30">
+              <label for="address" class="font-semibold pb-2 text-hover" i18n="@@form.startDate"
+                >Start Date *</label
+              >
+              <input
+                type="date"
+                id="startDate"
+                formControlName="startDate"
+                class="bg-card p-1 text-sm rounded w-full border border-hover-border text-text-contrast"
+              />
+              @if (
+                updateStartDateControl?.errors?.['required'] && updateStartDateControl?.touched
+              ) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@form.errorStartDateRequired"
+                  >Required startDate</span
+                >
+              } @else {
+                @if (
+                  updateStartDateControl?.errors?.['invalidBeforeToday'] &&
+                  updateStartDateControl?.touched
+                ) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="@@form.errorInvalidBeforeToday"
+                    >Must be a valid date</span
+                  >
+                }
+                @if (
+                  updateRequestForm.errors?.['invalidVacationStart'] &&
+                  updateStartDateControl?.touched
+                ) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="@@form.errorStartDate14Days"
+                    >Start must be at least after 14</span
+                  >
+                }
+              }
+              @if (
+                updateRequestForm.errors?.['invalidDateRange'] && updateStartDateControl?.touched
+              ) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@form.errorStartDateAfterEndDate"
+                  >Start date must be before End Date</span
+                >
+              }
+            </div>
+
+            <!-- End Date -->
+            <div class="flex flex-col min-h-30">
+              <label for="cif" class="font-semibold pb-2 text-hover" i18n="@@form.endDate"
+                >End Date *</label
+              >
+              <input
+                type="date"
+                id="endDate"
+                formControlName="endDate"
+                class="bg-card p-1 text-sm rounded w-full border border-hover-border text-text-contrast"
+                placeholder="A12345678"
+              />
+              @if (updateEndDateControl?.errors?.['required'] && updateEndDateControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@form.errorEndDateRequired"
+                  >Required End Date</span
+                >
+              } @else {
+                @if (
+                  updateRequestForm.errors?.['invalidDateRange'] && updateEndDateControl?.touched
+                ) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="@@form.errorEndDateBeforeStartDate"
+                    >End date must be after Start Date
+                  </span>
+                }
+              }
+            </div>
+          </div>
+
+          <div class="col-span-2 min-w-full flex justify-between">
+            <div class="gap-2 flex">
+              <button
+                aria-label="Close"
+                type="button"
+                class="bg-primary rounded p-2 transition hover:bg-hover text-text mb-1 cursor-pointer"
+                i18n="@@form.close"
+                (click)="modalUpdateVacation.set(false)"
+              >
+                Close
+              </button>
+            </div>
+            <div class="flex justify-end">
+              <button
+                aria-label="Update Request"
+                type="submit"
+                class="bg-primary rounded p-2 transition hover:bg-hover text-text mb-1 cursor-pointer"
+                i18n="@@form.addRequest"
+              >
+                Update Request
+              </button>
+            </div>
+          </div>
+        </form>
+      }
+    </p-dialog>
+
+    <!-- MODAL ERROR  -->
+    <div class="card flex justify-center">
+      <p-dialog
+        header="Error"
+        [modal]="true"
+        [visible]="modalError()"
+        styleClass="w-80 p-4 border border-red-600 bg-red-400 text-text"
+        (onHide)="modalError.set(false)"
+      >
+        <div class="gap-4 mb-4">
+          <p class="pb-2" i18n="@@form.modalErrorFirstP">Oops, something went wrong.</p>
+          <p class="pb-2">{{ errorMsg() }}</p>
+        </div>
+        <div class="flex justify-end gap-2">
+          <p-button
+            aria-label="Close"
+            label="Close"
+            severity="secondary"
+            (click)="modalError.set(false)"
+          />
+        </div>
+      </p-dialog>
+    </div>
+
+    <!-- MODAL UPDATE -->
+    <div class="card flex justify-center">
+      <p-dialog
+        header="Error"
+        [modal]="true"
+        [visible]="modalUpdateError()"
+        styleClass="w-80 p-4 border border-red-600 bg-red-400 text-text"
+        (onHide)="modalUpdateError.set(false)"
+      >
+        <div class="gap-4 mb-4">
+          <p class="pb-2" i18n="@@form.modalErrorFirstP">Oops, something went wrong.</p>
+          <p class="pb-2">{{ errorMsg() }}</p>
+        </div>
+        <div class="flex justify-end gap-2">
+          <p-button
+            aria-label="Close"
+            label="Close"
+            severity="secondary"
+            (click)="modalUpdateError.set(false)"
+          />
+        </div>
+      </p-dialog>
+    </div>
+    <!-- MODAL OK CREATED -->
+    <div class="card flex justify-center">
+      <p-dialog
+        header="Request created"
+        [modal]="true"
+        [visible]="modalUpdateOk()"
+        styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+        [closable]="false"
+        [closeOnEscape]="false"
+      >
+        <div class="gap-4 mb-4">
+          <p class="pb-2" i18n="@@form.modalRequestUpdated">Request updated.</p>
+        </div>
+      </p-dialog>
+    </div>
+
+    <!-- MODAL CONFIRM DELETE -->
+    <div class="card flex justify-center">
+      <p-dialog
+        header="Confirm Delete"
+        [modal]="true"
+        [visible]="modalConfirmDelete()"
+        styleClass="w-80 p-4 border border-red-600 bg-red-400 text-text"
+        (onHide)="modalConfirmDelete.set(false)"
+      >
+        <div class="gap-4 mb-4">
+          <p class="pb-2" i18n="@@form.modalRequestDeleted">Are you sure?</p>
+        </div>
+        <div class="flex justify-end gap-2">
+          <p-button
+            aria-label="Confirm"
+            label="Confirm"
+            severity="secondary"
+            class="bg-card rounded p-2 transition hover:bg-hover text-red-600 mb-1 cursor-pointer hover:text-text"
+            (click)="delete()"
+          />
+        </div>
+      </p-dialog>
+    </div>
+
+    <!-- MODAL OK DELETED -->
+    <div class="card flex justify-center">
+      <p-dialog
+        header="Request deleted"
+        [modal]="true"
+        [visible]="modalOkDelete()"
+        styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+        [closable]="false"
+        [closeOnEscape]="false"
+      >
+        <div class="gap-4 mb-4">
+          <p class="pb-2" i18n="@@form.modalRequestUpdated">Request deleted.</p>
+        </div>
+      </p-dialog>
+    </div>
+  </div>
+</div>

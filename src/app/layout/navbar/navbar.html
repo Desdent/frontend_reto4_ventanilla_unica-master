@@ -1,0 +1,117 @@
+<div class="w-full mx-auto px-4 md:px-10 lg:px-24 xl:px-50 py-4 bg-card">
+  <p-toolbar class="bg-transparent">
+    <!-- LOGO -->
+    <ng-template #start>
+      <a aria-label="Logo" routerLink="/">
+        <img src="./novahub-logo.png" alt="web logo" class="h-6 md:h-8" />
+      </a>
+    </ng-template>
+
+    <!-- CENTER NAV -->
+    <ng-template #center>
+      <div class="hidden md:flex items-center gap-4">
+        <a
+          aria-label="Direcyory"
+          routerLink="/"
+          i18n="@@navbar.directory-link"
+          class="text-sm font-semibold text-text-contrast transition hover:text-hover hover:scale-110"
+        >
+          Directory
+        </a>
+
+        <a
+          aria-label="Find Appointment"
+          routerLink="find-appointment"
+          i18n="@@navbar.find-appointment-link"
+          class="text-sm font-semibold text-text-contrast transition hover:text-hover hover:scale-110"
+        >
+          Find Appointment
+        </a>
+      </div>
+    </ng-template>
+
+    <!-- RIGHT -->
+    <ng-template #end>
+      <div class="flex items-center gap-2 md:gap-4">
+        <!-- THEME -->
+        <button
+          aria-label="Switch Dark Mode"
+          class="pi pi-moon text-primary text-lg hover:text-hover transition hover:scale-120 cursor-pointer"
+          (click)="themeService.toggleTheme()"
+        ></button>
+
+        @if (token()) {
+          <!-- USER -->
+          <div class="flex items-center gap-3 md:gap-6">
+            <div
+              class="font-semibold text-primary flex items-center transition hover:scale-110 cursor-pointer"
+            >
+              <a aria-label="Dashboard" routerLink="dashboard" class="flex items-center gap-2">
+                <span class="hidden sm:block">
+                  {{ name() | titlecase }}
+                </span>
+
+                <span
+                  aria-label="Dashboard"
+                  routerLink="dashboard"
+                  i18n="@@navbar.profile"
+                  class="pi pi-user font-bold hover:text-hover"
+                ></span>
+              </a>
+            </div>
+
+            <!-- LOGOUT -->
+            <a
+              aria-label="Logout"
+              routerLink=""
+              (click)="logout()"
+              i18n="@@navbar.logout"
+              class="pi pi-sign-out text-primary hover:text-hover transition hover:scale-120"
+            ></a>
+          </div>
+        } @else {
+          <!-- LOGIN -->
+          <a aria-label="Login" routerLink="login" class="px-2 md:px-4">
+            <span
+              i18n="@@navbar.button_login"
+              class="inline-block font-semibold text-primary hover:text-hover transition hover:scale-110"
+            >
+              Login
+            </span>
+          </a>
+        }
+      </div>
+    </ng-template>
+  </p-toolbar>
+
+  <!-- MOBILE NAV -->
+  <div class="flex md:hidden justify-center gap-4 pt-4 flex-wrap">
+    <a
+      aria-label="Directory"
+      routerLink="/"
+      i18n="@@navbar.directory-link"
+      class="text-sm font-semibold text-text-contrast transition hover:text-hover"
+    >
+      Directory
+    </a>
+
+    @if (token()) {
+      <a
+        routerLink="dashboard/appointments"
+        i18n="@@navbar.appointments-link"
+        class="text-sm font-semibold text-text-contrast transition hover:text-hover"
+      >
+        Appointments
+      </a>
+    }
+
+    <a
+      aria-label="Find Appointment"
+      routerLink="find-appointment"
+      i18n="@@navbar.find-appointment-link"
+      class="text-sm font-semibold text-text-contrast transition hover:text-hover"
+    >
+      Find Appointment
+    </a>
+  </div>
+</div>

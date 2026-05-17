@@ -1,0 +1,371 @@
+<div
+  class="flex items-center justify-center card bg-[url('/assets/orange-bg.jpg')] min-h-screen w-full h-full px-4 py-8 sm:px-6"
+>
+  <div
+    class="card flex flex-col justify-center items-center rounded-3xl bg-card w-full max-w-5xl p-6 sm:p-8 md:p-10 lg:min-w-150 shadow-sm hover:shadow-md transition-all duration-300"
+  >
+    <div class="flex flex-col py-6 sm:py-10">
+      <img src="./novahub-logo.png" alt="" class="w-24 sm:w-30" />
+    </div>
+
+    <form
+      [formGroup]="registerForm"
+      class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full"
+      (ngSubmit)="onSubmit()"
+    >
+      <!-- LEFT -->
+      <div>
+        <!-- Name -->
+        <div class="flex flex-col pb-6 min-h-30">
+          <label for="name" class="font-semibold pb-2 text-hover" i18n="@@register.name"
+            >Name *</label
+          >
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            class="p-1 text-sm italic rounded w-full border border-hover-border"
+            placeholder="John"
+          />
+          @if (nameControl?.errors?.['required'] && nameControl?.touched) {
+            <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@register.errorName"
+              >Required name</span
+            >
+          } @else {
+            @if (nameControl?.errors?.['minlength'] && nameControl?.touched) {
+              <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@register.errorNameMin"
+                >Min length is 1
+              </span>
+            }
+            @if (nameControl?.errors?.['maxlength'] && nameControl?.touched) {
+              <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@register.errorNameMax"
+                >Max length is 30
+              </span>
+            }
+          }
+        </div>
+
+        <!-- second surname -->
+        <div class="flex flex-col pb-6 min-h-30">
+          <label for="surname2" class="font-semibold pb-2 text-hover" i18n="@@register.surname2"
+            >Second surname</label
+          >
+          <input
+            type="text"
+            id="surname2"
+            formControlName="surname2"
+            class="p-1 text-sm italic rounded w-full border border-hover-border"
+            placeholder="Dae"
+          />
+          @if (surname2Control?.errors?.['maxlength'] && surname2Control?.touched) {
+            <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@register.errorSurname2Max"
+              >Max length is 30
+            </span>
+          }
+        </div>
+
+        <!-- Address -->
+        <div class="flex flex-col pb-6 min-h-30">
+          <label for="address" class="font-semibold pb-2 text-hover" i18n="@@register.address"
+            >Address *</label
+          >
+          <input
+            type="text"
+            id="address"
+            formControlName="address"
+            class="p-1 text-sm italic rounded w-full border border-hover-border"
+            placeholder="John"
+          />
+          @if (addressControl?.errors?.['maxlength'] && addressControl?.touched) {
+            <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@register.errorAddressMax"
+              >Max length is 30
+            </span>
+          }
+        </div>
+
+        <!-- Email -->
+        <div class="flex flex-col pb-6">
+          <label for="email" class="font-semibold pb-2 text-hover">Email *</label>
+
+          <input
+            type="text"
+            id="email"
+            formControlName="email"
+            class="p-1 text-sm italic rounded w-full border border-hover-border"
+            placeholder="Email@email.com"
+          />
+          @if (emailControl?.errors?.['required'] && emailControl?.touched) {
+            <span
+              class="text-sm text-red-400 font-semibold pt-1"
+              i18n="@@register.errorEmailRequired"
+              >Required email</span
+            >
+          } @else {
+            @if (emailControl?.errors?.['invalidEmail'] && emailControl?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@register.errorEmailInvalid"
+                >Invalid email
+              </span>
+            }
+          }
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div>
+        <!-- First surname -->
+        <div class="flex flex-col pb-6 min-h-30">
+          <label for="surname1" class="font-semibold pb-2 text-hover" i18n="@@register.surname1"
+            >First surname *</label
+          >
+          <input
+            type="text"
+            id="surname1"
+            formControlName="surname1"
+            class="p-1 text-sm italic rounded w-full border border-hover-border"
+            placeholder="Doe"
+          />
+          @if (surname1Control?.errors?.['required'] && surname1Control?.touched) {
+            <span
+              class="text-sm text-red-400 font-semibold pt-1"
+              i18n="@@register.errorSurname1Required"
+              >Required first surname</span
+            >
+          } @else {
+            @if (surname1Control?.errors?.['minlength'] && surname1Control?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@register.errorSurname1Min"
+                >Min length is 1
+              </span>
+            }
+            @if (surname1Control?.errors?.['maxlength'] && surname1Control?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@register.errorSurname1Max"
+                >Max length is 30
+              </span>
+            }
+          }
+        </div>
+
+        <!-- DNI -->
+        <div class="flex flex-col pb-6 min-h-30">
+          <label for="dni" class="font-semibold pb-2 text-hover" i18n="@@register.dni"
+            >DNI/NIE *</label
+          >
+          <input
+            type="text"
+            id="dni"
+            formControlName="dni"
+            class="p-1 text-sm italic rounded w-full border border-hover-border"
+            placeholder="111111111Z"
+          />
+
+          @if (dniControl?.errors?.['required'] && dniControl?.touched) {
+            <span
+              class="text-sm text-red-400 font-semibold pt-1"
+              i18n="@@register.errorDocumentRequired"
+              >Required document</span
+            >
+          } @else {
+            @if (dniControl?.errors?.['invalidDniNie'] && dniControl?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@register.errorDocumentInvalid"
+                >Invalid document
+              </span>
+            }
+          }
+        </div>
+
+        <!-- Phone -->
+        <div class="flex flex-col min-h-30">
+          <label for="phone" class="font-semibold pb-2 text-hover" i18n="@@register.phone"
+            >Phone *</label
+          >
+          <input
+            type="text"
+            id="phone"
+            formControlName="phone"
+            class="p-1 text-sm italic rounded w-full border border-hover-border"
+            placeholder="654321987"
+          />
+          @if (phoneControl?.errors?.['required'] && phoneControl?.touched) {
+            <span
+              class="text-sm text-red-400 font-semibold pt-1"
+              i18n="@@register.errorPhoneRequired"
+              >Required phone</span
+            >
+          } @else {
+            @if (phoneControl?.errors?.['invalidPhone'] && phoneControl?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@register.errorPhoneInvalid"
+                >Invalid phone
+              </span>
+            }
+          }
+        </div>
+
+        <!-- Password -->
+        <div class="flex flex-col pb-6 min-h-30">
+          <label for="password" class="font-semibold pb-2 text-hover" i18n="@@register.password"
+            >Password *</label
+          >
+
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            class="p-1 text-sm italic rounded w-full border border-hover-border"
+            placeholder="********"
+          />
+          @if (passwordControl?.errors?.['required'] && passwordControl?.touched) {
+            <span
+              class="text-sm text-red-400 font-semibold pt-1"
+              i18n="@@register.errorPasswordRequired"
+              >Required password</span
+            >
+          } @else {
+            @if (passwordControl?.errors?.['minlength'] && passwordControl?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@register.errorpasswordMin"
+                >Min 7 characters</span
+              >
+            }
+            @if (passwordControl?.errors?.['maxlength'] && passwordControl?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@register.errorPasswordMax"
+                >Max 50 characters</span
+              >
+            }
+            @if (passwordControl?.errors?.['invalidPassword'] && passwordControl?.touched) {
+              <div class="text-sm text-red-400 font-semibold pt-1">
+                Password must contain at least:
+              </div>
+              <div
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@register.errorPasswordLowercase"
+              >
+                One lowercase
+              </div>
+              <div
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@register.errorPasswordUppercase"
+              >
+                One uppercase
+              </div>
+              <div
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@register.errorPasswordSpecial"
+              >
+                One special character
+              </div>
+              <div
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@register.errorPasswordDigit"
+              >
+                One digit
+              </div>
+            }
+          }
+        </div>
+
+        <!-- Confirm password -->
+        <div class="flex flex-col pb-6 min-h-30">
+          <label
+            for="confirmPassowrd"
+            class="font-semibold pb-2 text-hover"
+            i18n="@@register.confirmPassword"
+            >Confirm password *</label
+          >
+
+          <input
+            type="password"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            class="p-1 text-sm italic rounded w-full border border-hover-border"
+            placeholder="********"
+          />
+          @if (confirmPasswordControl?.errors?.['required'] && confirmPasswordControl?.touched) {
+            <span
+              class="text-sm text-red-400 font-semibold pt-1"
+              i18n="@@register.errorConfirmationPasswordRequired"
+              >Required confirmation</span
+            >
+          } @else {
+            @if (registerForm.errors?.['passwordMismatch'] && confirmPasswordControl?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@register.errorPasswordMatch"
+                >Passwords do not match</span
+              >
+            }
+          }
+        </div>
+      </div>
+
+      <div class="col-span-1 lg:col-span-2 min-w-full pb-6 sm:pb-10 flex flex-col">
+        <a
+          routerLink=""
+          class="flex-col bg-primary min-w-10 max-w-15 rounded p-2 transition hover:bg-hover cursor-pointer text-text text-sm text-center"
+          i18n="@@register.back"
+        >
+          Back
+        </a>
+
+        <button
+          aria-label="Register"
+          type="submit"
+          class="bg-primary w-full rounded p-2 mt-4 transition hover:bg-hover text-text mb-1 cursor-pointer"
+          i18n="@@register.register"
+        >
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="card flex justify-center">
+    <p-dialog
+      header="Error"
+      [modal]="true"
+      [visible]="visible()"
+      styleClass="w-80 max-w-[90vw] p-4 border border-red-600 bg-red-400 text-text"
+      (onHide)="visible.set(false)"
+    >
+      <div class="gap-4 mb-4">
+        <p class="pb-2" i18n="@@register.modalErrorFirstP">Oops, something went wrong.</p>
+
+        <p i18n="@@register.modalErrorSecondP">Registration not allowed or user already exists</p>
+      </div>
+      <div class="flex justify-end gap-2">
+        <p-button
+          aria-label="Close"
+          label="Close"
+          severity="secondary"
+          (click)="visible.set(false)"
+        />
+      </div>
+    </p-dialog>
+  </div>
+
+  <div class="card flex justify-center">
+    <p-dialog
+      header="User created"
+      [modal]="true"
+      [visible]="visibleCorrect()"
+      styleClass="w-80 max-w-[90vw] p-4 border border-green-600 bg-green-300 text-grey"
+    >
+      <div class="gap-4 mb-4">
+        <p class="pb-2" i18n="@@register.modalCreatedFirstP">Registration completed.</p>
+        <p i18n="@@register.modalCreatedSecondP">Redirecting to your dashboard...</p>
+      </div>
+      <div class="flex justify-end gap-2"></div>
+    </p-dialog>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+{
+  // Midudev's solution to an error when applying @themes at the global css
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}

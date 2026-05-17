@@ -1,0 +1,74 @@
+<div class="flex flex-col gap-10">
+  <div
+    class="w-full rounded-2xl bg-card p-4 sm:p-6 md:p-10 border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
+  >
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 auto-rows-auto md:grid-rows-2 gap-4 md:gap-4 h-auto md:h-175"
+    >
+      <div class="md:col-span-2 md:row-span-2 rounded-2xl bg-primary p-6 sm:p-8 text-white">
+        <div class="flex h-full flex-col">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold">Appointments per month</h2>
+          </div>
+          <div class="mt-6 flex-1 rounded-xl bg-card">
+            <canvas id="appointmentsChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="rounded-2xl bg-primary p-6 text-text flex flex-col justify-between transition-all duration-300 hover:shadow-lg"
+      >
+        <div>
+          <p class="text-sm font-medium text-white/80">Employees</p>
+          <h3 class="mt-3 text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
+            {{ countWorkers() }}
+          </h3>
+        </div>
+        <a
+          routerLink="workers"
+          class="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-text transition-colors group"
+        >
+          See more
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 transition-transform group-hover:translate-x-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
+      <div
+        class="rounded-2xl bg-primary p-6 text-text flex flex-col justify-between transition-all duration-300 hover:shadow-lg"
+      >
+        <div>
+          <p class="text-sm font-medium text-white/80">Services</p>
+          <h3 class="mt-3 text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
+            {{ countActivities() }}
+          </h3>
+        </div>
+        <a
+          routerLink="workers"
+          class="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-text transition-colors group"
+        >
+          See more
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 transition-transform group-hover:translate-x-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

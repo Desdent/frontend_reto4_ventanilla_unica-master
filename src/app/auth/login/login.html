@@ -1,0 +1,149 @@
+<div
+  class="flex items-center justify-center bg-[url('/assets/orange-bg.jpg')] bg-cover bg-center min-h-screen w-full px-4 py-6 sm:px-6"
+>
+  <div
+    class="card flex flex-col justify-center items-center rounded-3xl bg-card w-full max-w-md sm:max-w-lg min-h-100 p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-300"
+  >
+    <div class="py-6 sm:py-10">
+      <img src="./novahub-logo.png" alt="" class="w-24 sm:w-30" />
+    </div>
+
+    <form [formGroup]="loginForm" (submit)="onSubmit()" class="w-full">
+      @if (loginError()) {
+        <div class="card border-2 border-red-600 bg-red-400 rounded w-full min-h-10 p-3 mb-4">
+          <p class="text-bg">Error</p>
+          <p class="text-bg" i18n="@@login.errorMain">Email or password incorrect</p>
+        </div>
+      }
+
+      <!-- EMAIL -->
+      <div class="flex flex-col pb-6">
+        <label for="email" class="font-semibold pb-2 pt-2 text-hover" i18n="@@login_email">
+          Email *
+        </label>
+
+        <input
+          type="text"
+          id="email"
+          name="email"
+          formControlName="email"
+          class="text-text-contrast p-2 text-sm italic rounded w-full border border-hover-border"
+          placeholder="Your email"
+        />
+
+        @if (emailControl?.errors?.['required'] && emailControl?.touched) {
+          <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@login.errorEmailRequired">
+            Required email
+          </span>
+        } @else {
+          @if (emailControl?.errors?.['invalidEmail'] && emailControl?.touched) {
+            <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@login.errorEmailInvalid">
+              Invalid email
+            </span>
+          }
+        }
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="flex flex-col">
+        <label for="password" class="font-semibold pb-2 text-hover" i18n="@@login_password">
+          Password *
+        </label>
+
+        <input
+          type="password"
+          id="password"
+          name="password"
+          formControlName="password"
+          class="text-text-contrast p-2 text-sm italic rounded w-full border border-hover-border"
+          placeholder="Your password"
+        />
+
+        @if (passwordControl?.errors?.['required'] && passwordControl?.touched) {
+          <span
+            class="text-sm text-red-400 font-semibold pt-1"
+            i18n="@@login.errorPasswordRequired"
+          >
+            Required password
+          </span>
+        } @else if (passwordControl?.errors?.['minlength'] && passwordControl?.touched) {
+          <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@login.errorPasswordMin">
+            Min 7 characters
+          </span>
+        } @else if (passwordControl?.errors?.['maxlength'] && passwordControl?.touched) {
+          <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@login.errorPasswordMax">
+            Max 50 characters
+          </span>
+        } @else if (passwordControl?.errors?.['invalidPassword'] && passwordControl?.touched) {
+          <div class="text-sm text-red-400 font-semibold pt-1">Password must contain at least:</div>
+
+          <div
+            class="text-sm text-red-400 font-semibold pt-1"
+            i18n="@@login.errorPasswordLowercase"
+          >
+            One lowercase
+          </div>
+
+          <div
+            class="text-sm text-red-400 font-semibold pt-1"
+            i18n="@@login.errorPasswordUppercase"
+          >
+            One uppercase
+          </div>
+
+          <div class="text-sm text-red-400 font-semibold pt-1" i18n="@@login.errorPasswordSpecial">
+            One specieal character
+          </div>
+
+          <div class="text-sm text-red-400 font-semibold pt-1" i18n="@@login.errorPasswordDigit">
+            One digit
+          </div>
+        }
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="w-full pt-5 flex flex-col gap-3">
+        <button
+          aria-label="Login"
+          type="submit"
+          class="bg-primary w-full rounded p-2 transition hover:bg-hover cursor-pointer text-text mb-1"
+          i18n="@@login.login"
+        >
+          Login
+        </button>
+
+        <!-- <button
+          class="bg-primary w-full rounded p-2 transition hover:bg-hover cursor-pointer text-text"
+          i18n="@@login.google"
+        >
+          PLACEHOLDER BUTTON GOOGLE
+        </button> -->
+      </div>
+
+      <!-- OR -->
+      <div class="font-bold text-center py-6 sm:py-10 text-text-contrast">- OR -</div>
+
+      <!-- SIGN UP -->
+      <div class="font-bold text-center pb-6 sm:pb-10">
+        <a
+          routerLink="/register"
+          class="inline-block w-full rounded p-2 border-2 bg-white border-primary transition hover:bg-hover cursor-pointer text-hover-border hover:text-bg"
+          i18n="@@login.signUp"
+        >
+          SIGN UP
+        </a>
+      </div>
+
+      <!-- BACK -->
+      <div class="font-bold text-center pb-4 sm:pb-10">
+        <a
+          routerLink=""
+          class="inline-block bg-primary rounded px-4 py-2 transition hover:bg-hover cursor-pointer text-text text-sm text-center font-normal"
+          i18n="@@login.back"
+        >
+          Back
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

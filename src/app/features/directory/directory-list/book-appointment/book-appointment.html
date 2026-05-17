@@ -1,0 +1,391 @@
+<div
+  class="flex items-center justify-center card bg-[url('/assets/orange-bg.jpg')] min-h-screen w-full h-full p-4"
+>
+  <div
+    class="card flex flex-col justify-center items-center rounded-3xl bg-bg mx-4 min-h-100 shadow-sm hover:shadow-md transition-all duration-300"
+  >
+    @if (!appointmentCreated()) {
+      <div class="flex flex-col py-6 md:py-10">
+        <img src="./novahub-logo.png" alt="" class="w-24 md:w-30" />
+      </div>
+      <form
+        [formGroup]="bookAppointmentForm"
+        class="grid grid-cols-2 gap-4 md:gap-6 p-4 md:p-8"
+        (ngSubmit)="onSubmit()"
+      >
+        <!-- LEFT -->
+        <div>
+          <!-- Name -->
+          <div class="flex flex-col pb-4 md:pb-6 min-h-30">
+            <label for="name" class="font-semibold pb-2 text-hover" i18n="@@bookAppointment.name"
+              >Name *</label
+            >
+            <input
+              type="text"
+              id="name"
+              formControlName="nameUser"
+              class="p-1 text-sm rounded w-full pr-2 md:pr-25 border border-hover-border"
+              placeholder="John"
+            />
+            @if (nameControl?.errors?.['required'] && nameControl?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@bookAppointment.errorName"
+                >Required name</span
+              >
+            } @else {
+              @if (nameControl?.errors?.['minlength'] && nameControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@bookAppointment.errorNameMin"
+                  >Min length is 1
+                </span>
+              }
+              @if (nameControl?.errors?.['maxlength'] && nameControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@bookAppointment.errorNameMax"
+                  >Max length is 30
+                </span>
+              }
+            }
+          </div>
+
+          <!-- second surname -->
+          <div class="flex flex-col pb-4 md:pb-6 min-h-30">
+            <label
+              for="surname2"
+              class="font-semibold pb-2 text-hover"
+              i18n="@@bookAppointment.surname2"
+              >Second surname</label
+            >
+            <input
+              type="text"
+              id="surname2"
+              formControlName="surname2User"
+              class="p-1 text-sm rounded w-full pr-2 md:pr-25 border border-hover-border"
+              placeholder="Dae"
+            />
+            @if (surname2Control?.errors?.['maxlength'] && surname2Control?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@bookAppointment.errorSurname2Max"
+                >Max length is 30
+              </span>
+            }
+          </div>
+
+          <!-- Email -->
+          <div class="flex flex-col pb-4 md:pb-6 min-h-30">
+            <label for="email" class="font-semibold pb-2 text-hover">Email *</label>
+
+            <input
+              type="text"
+              id="email"
+              formControlName="emailUser"
+              class="p-1 text-sm rounded w-full pr-2 md:pr-25 border border-hover-border"
+              placeholder="Email@email.com"
+            />
+            @if (emailControl?.errors?.['required'] && emailControl?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@bookAppointment.errorEmailRequired"
+                >Required email</span
+              >
+            } @else {
+              @if (emailControl?.errors?.['invalidEmail'] && emailControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@bookAppointment.errorEmailInvalid"
+                  >Invalid email
+                </span>
+              }
+            }
+          </div>
+
+          <!-- Activity -->
+          <div class="flex flex-col pb-4 md:pb-6 min-h-30">
+            <label class="font-semibold pb-2 text-hover" i18n="@@bookAppointment.service"
+              >Selected service</label
+            >
+
+            <p
+              readonly
+              type="text"
+              id="service"
+              class="p-1 text-sm rounded w-full pr-2 md:pr-25 border border-hover-border"
+            >
+              {{ selectedActivity()!.name }}
+            </p>
+            @if (serviceIdControl?.errors?.['required'] && serviceIdControl?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@bookAppointment.errorServiceRequired"
+                >Required service</span
+              >
+            }
+          </div>
+
+          <!-- Date -->
+          <div class="flex flex-col pb-4 md:pb-6 min-h-30">
+            @if (selectedWorker()) {
+              <label class="font-semibold pb-2 text-hover" i18n="@@bookAppointment.date"
+                >Select a date *</label
+              >
+              <select
+                formControlName="date"
+                name="date"
+                id="date"
+                class="p-1 text-sm rounded w-full pr-2 md:pr-25 border border-hover-border"
+              >
+                <option value="" disabled selected>Select a date</option>
+                @for (day of sevenDaysOfWork(); track $index) {
+                  <!-- when doing the i18n change the representetion to {{day | date: "dd/mm/yyyy"}} -->
+                  <option value="{{ day }}" i18n="@@bookAppointment.dateOption">
+                    {{ day | date: 'yyyy/MM/dd' }}
+                  </option>
+                }
+              </select>
+            }
+            @if (dateControl?.errors?.['required'] && dateControl?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@bookAppointment.errorDateRequired"
+                >Required date</span
+              >
+            }
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div>
+          <!-- First surname -->
+          <div class="flex flex-col pb-4 md:pb-6 min-h-30">
+            <label
+              for="surname1"
+              class="font-semibold pb-2 text-hover"
+              i18n="@@bookAppointment.surname1"
+              >First surname *</label
+            >
+            <input
+              type="text"
+              id="surname1"
+              formControlName="surname1User"
+              class="p-1 text-sm rounded w-full pr-2 md:pr-25 border border-hover-border"
+              placeholder="Doe"
+            />
+            @if (surname1Control?.errors?.['required'] && surname1Control?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@bookAppointment.errorSurname1Required"
+                >Required first surname</span
+              >
+            } @else {
+              @if (surname1Control?.errors?.['minlength'] && surname1Control?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@bookAppointment.errorSurname1Min"
+                  >Min length is 1
+                </span>
+              }
+              @if (surname1Control?.errors?.['maxlength'] && surname1Control?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@bookAppointment.errorSurname1Max"
+                  >Max length is 30
+                </span>
+              }
+            }
+          </div>
+
+          <!-- DNI -->
+          <div class="flex flex-col pb-4 md:pb-6 min-h-30">
+            <label for="dni" class="font-semibold pb-2 text-hover" i18n="@@bookAppointment.dni"
+              >DNI/NIE *</label
+            >
+            <input
+              type="text"
+              id="dni"
+              formControlName="dniUser"
+              class="p-1 text-sm rounded w-full pr-2 md:pr-25 border border-hover-border"
+              placeholder="111111111Z"
+            />
+
+            @if (dniControl?.errors?.['required'] && dniControl?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@bookAppointment.errorDocumentRequired"
+                >Required document</span
+              >
+            } @else {
+              @if (dniControl?.errors?.['invalidDniNie'] && dniControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@bookAppointment.errorDocumentInvalid"
+                  >Invalid document
+                </span>
+              }
+            }
+          </div>
+
+          <!-- Phone -->
+          <div class="flex flex-col pb-4 md:pb-6 min-h-30">
+            <label for="phone" class="font-semibold pb-2 text-hover" i18n="@@bookAppointment.phone"
+              >Phone *</label
+            >
+            <input
+              type="text"
+              id="phone"
+              formControlName="phoneUser"
+              class="p-1 text-sm rounded w-full pr-2 md:pr-25 border border-hover-border"
+              placeholder="654321987"
+            />
+            @if (phoneControl?.errors?.['required'] && phoneControl?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@bookAppointment.errorPhoneRequired"
+                >Required phone</span
+              >
+            } @else {
+              @if (phoneControl?.errors?.['invalidPhone'] && phoneControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@bookAppointment.errorPhoneInvalid"
+                  >Invalid phone
+                </span>
+              }
+            }
+          </div>
+
+          <!-- Worker -->
+          <div class="flex flex-col pb-4 md:pb-6 min-h-30">
+            <label
+              for="workerId"
+              class="font-semibold pb-2 text-hover"
+              i18n="@@bookAppointment.worker"
+              >Select an employee *</label
+            >
+            <select
+              id="worker"
+              formControlName="workerId"
+              class="p-1 text-sm rounded w-full pr-2 md:pr-25 border border-hover-border"
+              (change)="onOptionChangeWorker($event)"
+            >
+              <option value="" disabled i18n="bookAppointment.selectDefaultWorker">
+                Select an employee
+              </option>
+              @for (worker of workers(); track worker.id) {
+                <option value="{{ worker.id }}">{{ worker.name }} {{ worker.surname1 }}</option>
+              }
+            </select>
+            @if (workerIdControl?.errors?.['required'] && workerIdControl?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@bookAppointment.errorWorkerRequired"
+                >Required employee</span
+              >
+            }
+          </div>
+
+          <!-- Time -->
+          <div class="flex flex-col pb-4 md:pb-6 min-h-30">
+            @if (selectedDate()) {
+              <label for="time" class="font-semibold pb-2 text-hover" i18n="@@bookAppointment.time"
+                >Select an available time *</label
+              >
+
+              <select
+                name="time"
+                id="time"
+                formControlName="time"
+                class="p-1 text-sm rounded w-full pr-2 md:pr-25 border border-hover-border"
+              >
+                <option value="" disabled selected>Select a time</option>
+                @for (time of timesForActivity(); track $index) {
+                  <option value="{{ time }}" class="font-semibold">
+                    {{ time }}
+                  </option>
+                }
+              </select>
+            }
+            @if (timeControl?.errors?.['required'] && timeControl?.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@bookAppointment.errorTimeRequired"
+                >Required time</span
+              >
+            }
+          </div>
+        </div>
+
+        <div class="col-span-2 w-full pb-6 md:pb-10 flex flex-col gap-2">
+          <a
+            routerLink=""
+            class="flex-col bg-primary min-w-10 max-w-15 rounded p-2 mb-2 transition hover:bg-hover cursor-pointer text-white text-sm text-center"
+            i18n="@@register.back"
+          >
+            Back
+          </a>
+          <button
+            type="submit"
+            class="bg-primary w-full rounded p-2 transition hover:bg-hover text-white mb-1 cursor-pointer"
+            i18n="@@bookAppointment.bookAppointment"
+          >
+            Book Appointment
+          </button>
+        </div>
+      </form>
+    } @else {
+      <div class="px-2 md:px-4">
+        <p
+          class="text-xl md:text-2xl font-semibold p-2 pb-8 md:pb-15 text-center"
+          i18n="appointment.createdHeader"
+        >
+          Appointment booked
+        </p>
+      </div>
+
+      <div class="px-4 md:px-10 text-center">
+        <p class="text-sm md:text-m" i18n="appointment.createdText1">
+          Your appointment for the day
+          <span class="font-semibold"> {{ selectedDate() }} </span> with
+          <span class="font-semibold"> {{ selectedWorker()!.name }}</span>
+          <span class="font-semibold"> {{ selectedWorker()!.surname1 }}</span>
+        </p>
+        <p>
+          for
+          <span class="font-semibold" i18n="appointment.createdText1">{{
+            selectedActivity()!.name
+          }}</span>
+          has been confirmed
+        </p>
+
+        <p class="p-2">
+          Your confirmation code is: <span class="font-bold">{{ confirmationCode() }}</span>
+        </p>
+        <p class="p-2 font-semibold text-sm md:text-base" i18n="appointment.codeSafe">
+          This code is your only way to edit you appointment, keep it safe
+        </p>
+      </div>
+    }
+  </div>
+
+  <div class="card flex justify-center">
+    <p-dialog
+      header="Error"
+      [modal]="true"
+      [visible]="error()"
+      styleClass="w-full max-w-80 p-4 border border-red-600 bg-red-400 text-white"
+      (onHide)="error.set(false)"
+    >
+      <div class="gap-4 mb-4">
+        <p class="pb-2 text-sm" i18n="@@bookAppointment.modalErrorFirstP">
+          Oops, something went wrong.
+        </p>
+      </div>
+      <div class="flex justify-end gap-2">
+        <p-button label="Close" severity="secondary" (click)="error.set(false)" />
+      </div>
+    </p-dialog>
+  </div>
+</div>

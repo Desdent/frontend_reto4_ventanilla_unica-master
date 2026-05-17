@@ -1,0 +1,453 @@
+<div class="flex flex-col gap-10">
+  <div class="card w-full bg-primary p-10 rounded-2xl">
+    <p class="text-text text-4xl font-semibold">Companies</p>
+  </div>
+
+  <div class="card w-full bg-card p-10 rounded-2xl">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+      <input
+        type="text"
+        placeholder="Search companies..."
+        class="w-full md:w-1/3 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+        (keyup)="onSearch($event)"
+      />
+
+      <button
+        aria-label="Add Company"
+        class="bg-hover-border text-text px-5 py-2 rounded-lg cursor-pointer transition hover:bg-hover"
+        (click)="modalVisible.set(true)"
+      >
+        <span class="pi pi-plus"></span>
+      </button>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full border border-gray-200 rounded-xl overflow-hidden">
+        <thead class="bg-hover-border">
+          <tr>
+            <th
+              class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+              (click)="orderByAndReload('name')"
+            >
+              Name
+              @if (orderField().toLocaleLowerCase() == 'name') {
+                @if (orderBy().toLocaleLowerCase() == 'asc') {
+                  <span class="pi pi-sort-up"></span>
+                } @else {
+                  <span class="pi pi-sort-down"></span>
+                }
+              } @else {
+                <span class="pi pi-sort"></span>
+              }
+            </th>
+            <th
+              class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+              (click)="orderByAndReload('cif')"
+            >
+              CIF
+              @if (orderField().toLocaleLowerCase() == 'cif') {
+                @if (orderBy().toLocaleLowerCase() == 'asc') {
+                  <span class="pi pi-sort-up"></span>
+                } @else {
+                  <span class="pi pi-sort-down"></span>
+                }
+              } @else {
+                <span class="pi pi-sort"></span>
+              }
+            </th>
+            <th
+              class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+              (click)="orderByAndReload('phone')"
+            >
+              Phone
+              @if (orderField().toLocaleLowerCase() == 'phone') {
+                @if (orderBy().toLocaleLowerCase() == 'asc') {
+                  <span class="pi pi-sort-up"></span>
+                } @else {
+                  <span class="pi pi-sort-down"></span>
+                }
+              } @else {
+                <span class="pi pi-sort"></span>
+              }
+            </th>
+            <th
+              class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+              (click)="orderByAndReload('address')"
+            >
+              Address
+              @if (orderField().toLocaleLowerCase() == 'address') {
+                @if (orderBy().toLocaleLowerCase() == 'asc') {
+                  <span class="pi pi-sort-up"></span>
+                } @else {
+                  <span class="pi pi-sort-down"></span>
+                }
+              } @else {
+                <span class="pi pi-sort"></span>
+              }
+            </th>
+            <th class="text-left p-4 border-b text-text">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @if (loading()) {
+            @for (item of [1, 2, 3, 4, 5]; track $index) {
+              <tr>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-bg rounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-bg rounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-bg rounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-bgrounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 w-20 bg-bg rounded animate-pulse"></div>
+                </td>
+              </tr>
+            }
+          } @else {
+            @for (company of companies(); track $index) {
+              <tr class="hover:bg-bg transition">
+                <td class="p-4 border-b text-text-contrast">{{ company.name }}</td>
+                <td class="p-4 border-b text-text-contrast">{{ company.cif }}</td>
+                <td class="p-4 border-b text-text-contrast">{{ company.phone }}</td>
+                <td class="p-4 border-b text-text-contrast">{{ company.address }}</td>
+                <td class="p-4 border-b text-text-contrast">
+                  <div class="flex gap-2">
+                    <button
+                      aria-label="Delete Company"
+                      class="bg-red-button text-text px-3 py-1 rounded cursor-pointer transition hover:bg-red-button-hover"
+                      i18n="addCompany.buttonDelete"
+                      (click)="confirmAction(company)"
+                    >
+                      <span class="pi pi-trash"></span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+      <div class="flex justify-center items-center gap-4 mt-6">
+        <button
+          aria-label="Previous"
+          class="px-4 py-2 bg-hover-border rounded disabled:opacity-50 cursor-pointer text-text-contrast"
+          (click)="prevPage()"
+          [disabled]="page() === 1"
+        >
+          Prev
+        </button>
+
+        <!--  If i've understood it correctly constructor builds an array in "real" time -->
+        @for (p of [].constructor(totalPages()); let i = $index; track $index) {
+          <button
+            aria-label="Page number"
+            class="px-3 py-1 rounded bg-primary cursor-pointer"
+            [class.bg-primary]="page() === i + 1"
+            [class.text-text]="page() === i + 1"
+            (click)="goToPage(i + 1)"
+          >
+            {{ i + 1 }}
+          </button>
+        }
+
+        <button
+          aria-label="Next"
+          class="px-4 py-2 bg-hover-border rounded disabled:opacity-50 cursor-pointer text-text-contrast"
+          (click)="nextPage()"
+          [disabled]="page() === totalPages()"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!--  THE MODAL -->
+  <div class="card flex justify-center">
+    <p-dialog
+      header="Company Form"
+      [modal]="true"
+      [visible]="modalVisible()"
+      styleClass="min-w-2/5 p-4 bg-card text-text-contrast"
+      (onHide)="modalVisible.set(false)"
+    >
+      @if (addCompanyForm) {
+        <form class="grid grid-cols-2 gap-6" [formGroup]="addCompanyForm">
+          <!-- LEFT -->
+          <div>
+            <!-- Name -->
+            <div class="flex flex-col pb-6 min-h-30">
+              <label
+                for="name"
+                class="font-semibold pb-2 text-hover"
+                i18n="@@addCompany.nameRequired"
+                >Name *</label
+              >
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="bg-card p-1 text-sm rounded w-full pr-25 border border-hover-border"
+                placeholder="Company SO"
+              />
+              @if (nameControl?.errors?.['required'] && nameControl?.touched) {
+                <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@addCompany.errorName"
+                  >Required name</span
+                >
+              } @else {
+                @if (nameControl?.errors?.['minlength'] && nameControl?.touched) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="@@addCompany.errorNameMin"
+                    >Min length is 1
+                  </span>
+                }
+                @if (nameControl?.errors?.['maxlength'] && nameControl?.touched) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="@@addCompany.errorNameMax"
+                    >Max length is 30
+                  </span>
+                }
+              }
+            </div>
+
+            <!-- CIF -->
+            <div class="flex flex-col pb-6 min-h-30">
+              <label for="cif" class="font-semibold pb-2 text-hover" i18n="@@addCompany.dni"
+                >CIF *</label
+              >
+              <input
+                type="text"
+                id="cif"
+                formControlName="cif"
+                class="bg-card p-1 text-sm rounded w-full pr-25 border border-hover-border"
+                placeholder="A12345678"
+              />
+              @if (cifControl?.errors?.['required'] && cifControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@addCompany.errorCiRequired"
+                  >Required CIF</span
+                >
+              } @else {
+                @if (cifControl?.errors?.['invalidDni'] && cifControl?.touched) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="@@addCompany.errorInvalidCif"
+                    >Invalid CIF
+                  </span>
+                }
+              }
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+          <div>
+            <!-- Phone -->
+            <div class="flex flex-col pb-6 min-h-30">
+              <label for="phone" class="font-semibold pb-2 text-hover" i18n="@@addCompany.phone"
+                >Phone *</label
+              >
+              <input
+                type="text"
+                id="phone"
+                formControlName="phone"
+                class="bg-card p-1 text-sm rounded w-full pr-25 border border-hover-border"
+                placeholder="954321987"
+              />
+              @if (phoneControl?.errors?.['required'] && phoneControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@addCompany.errorPhoneRequired"
+                  >Required phone</span
+                >
+              } @else {
+                @if (phoneControl?.errors?.['invalidPhone'] && phoneControl?.touched) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="@@addCompany.errorPhoneInvalid"
+                    >Invalid phone
+                  </span>
+                }
+              }
+            </div>
+
+            <!-- Address -->
+            <div class="flex flex-col pb-6 min-h-30">
+              <label for="address" class="font-semibold pb-2 text-hover" i18n="@@addCompany.address"
+                >Address *</label
+              >
+              <input
+                type="text"
+                id="address"
+                formControlName="address"
+                class="bg-card p-1 text-sm rounded w-full pr-25 border border-hover-border"
+                placeholder="Los Santos nº4"
+              />
+              @if (addressControl?.errors?.['required'] && addressControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@addCompany.errorAddressRequired"
+                  >Required address</span
+                >
+              }
+            </div>
+
+            <!-- Field -->
+            <div class="flex flex-col pb-6 min-h-30">
+              <label for="field" class="font-semibold pb-2 text-hover" i18n="@@addCompany.field"
+                >Field *</label
+              >
+              <select
+                name="field"
+                id="field"
+                class="bg-card p-1 text-sm rounded w-full pr-25 border border-hover-border"
+                formControlName="fieldId"
+              >
+                <option value="" i18n="@@addCompany.selectField">Select a field</option>
+                @for (field of fields(); track $index) {
+                  <option value="{{ field.id }}">{{ field.name }}</option>
+                }
+              </select>
+              @if (fieldIdControl?.errors?.['required'] && fieldIdControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@addCompany.errorFieldRequired"
+                  >Required field</span
+                >
+              }
+            </div>
+          </div>
+
+          <div class="col-span-2 min-w-full flex justify-between">
+            <div class="gap-2 flex">
+              <button
+                aria-label="Close"
+                type="button"
+                class="bg-primary rounded p-2 transition hover:bg-hover text-text mb-1 cursor-pointer"
+                i18n="@@addCompany.addCompany"
+                (click)="modalVisible.set(false)"
+              >
+                Close
+              </button>
+            </div>
+            <div class="flex justify-end">
+              <button
+                aria-label="Add Company"
+                type="button"
+                class="bg-primary rounded p-2 transition hover:bg-hover text-text mb-1 cursor-pointer"
+                i18n="@@addCompany.addCompany"
+                (click)="onSubmit()"
+              >
+                Add Company
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="card flex justify-center">
+          <p-dialog
+            header="Error"
+            [modal]="true"
+            [visible]="modalErrorVisible()"
+            styleClass="w-80 p-4 border border-red-600 bg-red-400 text-text"
+            (onHide)="modalErrorVisible.set(false)"
+          >
+            <div class="gap-4 mb-4">
+              <p class="pb-2" i18n="@@addCompany.modalErrorFirstP">Oops, something went wrong.</p>
+              <p class="pb-2">{{ errorMsg() }}</p>
+            </div>
+            <div class="flex justify-end gap-2">
+              <p-button
+                aria-label="Close"
+                label="Close"
+                severity="secondary"
+                (click)="modalErrorVisible.set(false)"
+              />
+            </div>
+          </p-dialog>
+        </div>
+        <div class="card flex justify-center">
+          <p-dialog
+            header="User created"
+            [modal]="true"
+            [visible]="modalOkVisible()"
+            styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+          >
+            <div class="gap-4 mb-4">
+              <p class="pb-2" i18n="@@addCompany.modalCreated">Company created.</p>
+            </div>
+          </p-dialog>
+        </div>
+      }
+    </p-dialog>
+  </div>
+
+  <!--  THE THIRD MODAL -->
+  <div class="card flex justify-center">
+    <div class="card flex justify-center">
+      <p-dialog
+        header="Confirm Action"
+        [modal]="true"
+        [visible]="modalConfirmVisible()"
+        styleClass="w-80 p-4 border-red-600 bg-red-400  text-text"
+        (onHide)="modalErrorVisible.set(false)"
+      >
+        <div class="gap-4 mb-4">
+          <p class="pb-2" i18n="@@deleteCompany.modalConfirmFirstP">Are you sure?</p>
+        </div>
+        <div class="flex justify-end gap-2">
+          <p-button
+            aria-label="Confirm"
+            label="Confirm"
+            severity="secondary"
+            class="bg-card rounded p-2 transition hover:bg-hover text-red-600 mb-1 cursor-pointer hover:text-text"
+            (click)="delete()"
+          />
+        </div>
+      </p-dialog>
+    </div>
+    <div class="card flex justify-center">
+      <p-dialog
+        header="Error"
+        [modal]="true"
+        [visible]="modal3ErrorVisible()"
+        styleClass="w-80 p-4 border border-red-600 bg-red-400 text-text"
+        (onHide)="modalErrorVisible.set(false)"
+      >
+        <div class="gap-4 mb-4">
+          <p class="pb-2" i18n="@@addCompany.modalErrorFirstP">Oops, something went wrong.</p>
+          <p class="pb-2">{{ errorMsg() }}</p>
+        </div>
+        <div class="flex justify-end gap-2">
+          <p-button
+            aria-label="Close"
+            label="Close"
+            severity="secondary"
+            (click)="modalErrorVisible.set(false)"
+          />
+        </div>
+      </p-dialog>
+    </div>
+    <div class="card flex justify-center">
+      <p-dialog
+        header="Success"
+        [modal]="true"
+        [visible]="modal3OkVisible()"
+        styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+      >
+        <div class="gap-4 mb-4">
+          <p class="pb-2" i18n="@@addCompany.modalCreated">Company Deleted.</p>
+        </div>
+      </p-dialog>
+    </div>
+  </div>
+</div>

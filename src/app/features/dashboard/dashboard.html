@@ -1,0 +1,32 @@
+<div
+  class="bg-primary min-h-20 max-h-30 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-50 flex items-center h-auto sm:h-screen py-6 sm:py-0"
+>
+  <div class="w-full">
+    <h2
+      class="text-xl sm:text-2xl font-semibold w-full items-center gap-4 text-text"
+      i18n="@@dashboard.title"
+    >
+      User Dashboard
+    </h2>
+
+    <h4
+      class="w-full items-center gap-4 pt-2 text-sm sm:text-base text-text"
+      i18n="@@dashboard.subtitle"
+    >
+      Manage all you data
+    </h4>
+  </div>
+</div>
+
+<div class="card overflow-x-auto">
+  <p-menubar
+    [model]="items"
+    class="py-4 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-50 justify-center dark:text-gray-600"
+  />
+</div>
+
+<div
+  class="card min-h-screen w-full h-full gap-5 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-50 pt-6 sm:pt-8 py-6 sm:py-8"
+>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,41 @@
+<div class="flex flex-col gap-6 sm:gap-8 md:gap-10">
+  <div
+    class="w-full rounded-2xl bg-card p-4 sm:p-6 md:p-10 border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
+  >
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 auto-rows-auto md:grid-rows-3 gap-4 md:gap-4 h-auto md:h-175"
+    >
+      <div class="md:col-span-2 md:row-span-3 rounded-2xl bg-primary p-6 sm:p-8 text-text">
+        <div class="flex h-full flex-col">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold">Appointments per month</h2>
+          </div>
+          <div class="mt-6 flex-1 min-h-64 rounded-xl bg-card">
+            <canvas id="appointmentsChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-2xl bg-primary p-6 text-text transition-all duration-300 hover:shadow-lg">
+        <p class="text-sm">Total Users</p>
+        <h3 class="mt-4 text-5xl sm:text-6xl md:text-7xl font-bold">
+          {{ countUsers() }}
+        </h3>
+      </div>
+
+      <div class="rounded-2xl bg-primary p-6 text-text transition-all duration-300 hover:shadow-lg">
+        <p class="text-sm">Companies</p>
+        <h3 class="mt-4 text-5xl sm:text-6xl md:text-7xl font-bold">
+          {{ countCompanies() }}
+        </h3>
+      </div>
+
+      <div class="rounded-2xl bg-primary p-6 text-text transition-all duration-300 hover:shadow-lg">
+        <p class="text-sm">Services</p>
+        <h3 class="mt-4 text-5xl sm:text-6xl md:text-7xl font-bold">
+          {{ countActivities() }}
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>

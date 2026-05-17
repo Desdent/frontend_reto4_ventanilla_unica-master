@@ -1,0 +1,192 @@
+<div class="flex flex-col gap-10">
+  <div class="card w-full bg-primary p-10 rounded-2xl border-gray-200 shadow-sm">
+    <p class="text-text text-4xl font-semibold" i18n="@@dashboard.companyDataTitle">Company Data</p>
+  </div>
+
+  <div
+    class="card w-full bg-card p-10 rounded-2xl border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
+  >
+    <form
+      class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-start"
+      [formGroup]="companyForm"
+      (ngSubmit)="onUpdate()"
+    >
+      <!-- LEFT -->
+      <div class="flex flex-col gap-6 w-full">
+        <!-- NAME -->
+        <div class="flex flex-col w-full min-h-26">
+          <label class="font-semibold pb-2 text-hover">Name *</label>
+          <input
+            type="text"
+            formControlName="name"
+            class="w-full bg-card p-3 text-sm rounded border border-hover-border text-text-contrast"
+            placeholder="Company Test"
+          />
+
+          @if (nameControl?.errors?.['required'] && nameControl?.touched) {
+            <span class="text-sm text-red-400 pt-1" i18n="@@form.errorNameRequired"
+              >Name is required</span
+            >
+          } @else if (nameControl?.errors?.['minlength'] && nameControl?.touched) {
+            <span class="text-sm text-red-400 pt-1" i18n="@@form.errorMinLength"
+              >Min length is 1</span
+            >
+          } @else if (nameControl?.errors?.['maxlength'] && nameControl?.touched) {
+            <span class="text-sm text-red-400 pt-1" i18n="@@form.errorMaxLength"
+              >Max length is 30</span
+            >
+          }
+        </div>
+
+        <!-- CIF -->
+        <div class="flex flex-col w-full min-h-26">
+          <label class="font-semibold pb-2 text-hover">CIF *</label>
+          <input
+            type="text"
+            formControlName="cif"
+            class="w-full bg-card p-3 text-sm rounded border border-hover-border text-text-contrast"
+            placeholder="E73317463"
+          />
+
+          @if (cifControl?.errors?.['required'] && cifControl?.touched) {
+            <span class="text-sm text-red-400 pt-1" i18n="@@form.errorCifRequired"
+              >CIF is required</span
+            >
+          } @else if (cifControl?.errors?.['invalidDocument'] && cifControl?.touched) {
+            <span class="text-sm text-red-400 pt-1" i18n="@@form.errorCifInvalid">Invalid CIF</span>
+          }
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="flex flex-col gap-6 w-full">
+        <!-- PHONE -->
+        <div class="flex flex-col w-full min-h-26">
+          <label class="font-semibold pb-2 text-hover">Phone *</label>
+          <input
+            type="text"
+            formControlName="phone"
+            class="w-full bg-card p-3 text-sm rounded border border-hover-border text-text-contrast"
+            placeholder="953000000"
+          />
+
+          @if (phoneControl?.errors?.['required'] && phoneControl?.touched) {
+            <span class="text-sm text-red-400 pt-1" i18n="@@form.errorPhoneRequired"
+              >Phone is required</span
+            >
+          } @else if (phoneControl?.errors?.['invalidPhone'] && phoneControl?.touched) {
+            <span class="text-sm text-red-400 pt-1" i18n="@@form.errorPhoneInvalid"
+              >Invalid phone</span
+            >
+          }
+        </div>
+
+        <!-- ADDRESS -->
+        <div class="flex flex-col w-full min-h-26">
+          <label class="font-semibold pb-2 text-hover">Address *</label>
+          <input
+            type="text"
+            formControlName="address"
+            class="w-full bg-card p-3 text-sm rounded border border-hover-border text-text-contrast"
+            placeholder="False Street"
+          />
+
+          @if (addressControl?.errors?.['required'] && addressControl?.touched) {
+            <span class="text-sm text-red-400 pt-1" i18n="@@form.errorAddressRequired"
+              >Address is required</span
+            >
+          } @else if (addressControl?.errors?.['minlength'] && addressControl?.touched) {
+            <span class="text-sm text-red-400 pt-1" i18n="@@form.errorAddressMinLength"
+              >Min length is 1</span
+            >
+          } @else if (addressControl?.errors?.['maxlength'] && addressControl?.touched) {
+            <span class="text-sm text-red-400 pt-1" i18n="@@form.errorAddressMaxLength"
+              >Max length is 100</span
+            >
+          }
+        </div>
+
+        <!-- CONFIRM PASSWORD -->
+        <div class="flex flex-col w-full min-h-26">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.confirmPassword"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            formControlName="password"
+            class="w-full bg-card p-3 text-sm rounded border border-hover-border text-text-contrast"
+            placeholder="*******"
+          />
+          @if (passwordControl?.errors?.['required'] && passwordControl?.touched) {
+            <span
+              class="text-sm text-red-400 font-semibold pt-1"
+              i18n="@@form.errorPasswordRequired"
+            >
+              Password is required
+            </span>
+          } @else if (passwordControl?.errors?.['maxlength'] && passwordControl?.touched) {
+            <span
+              class="text-sm text-red-400 font-semibold pt-1"
+              i18n="@@form.errorPasswordMaxLength"
+            >
+              Max length is 50
+            </span>
+          }
+        </div>
+      </div>
+
+      <!-- BUTTON -->
+      <div class="col-span-2 flex justify-end pt-6">
+        <button
+          aria-label="Update Company"
+          type="submit"
+          class="bg-primary px-6 py-2 rounded hover:bg-hover cursor-pointer text-text"
+        >
+          Update Company
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL OK UPDATE  -->
+
+<div class="card flex justify-center">
+  <p-dialog
+    header="User updated"
+    [modal]="true"
+    [visible]="modalUpdateOk()"
+    styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+    [closable]="false"
+    [closeOnEscape]="false"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@modal.userUpdated">Company updated.</p>
+    </div>
+  </p-dialog>
+</div>
+
+<!-- MODAL ERROR -->
+
+<div class="card flex justify-center">
+  <p-dialog
+    header="Error"
+    [modal]="true"
+    [visible]="modalError()"
+    styleClass="w-80 p-4 border border-red-600 bg-red-400 text-text"
+    (onHide)="modalError.set(false)"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@form.modalErrorFirstP">Oops, something went wrong.</p>
+      <p class="pb-2">{{ errorMsg() }}</p>
+    </div>
+    <div class="flex justify-end gap-2">
+      <p-button
+        aria-label="Close"
+        label="Close"
+        severity="secondary"
+        (click)="modalError.set(false)"
+      />
+    </div>
+  </p-dialog>
+</div>

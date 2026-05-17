@@ -1,0 +1,8 @@
+:host ::ng-deep .p-menubar {
+  justify-content: center;
+}
+
+:host ::ng-deep .p-menubar-root-list {
+  width: 100%;
+  justify-content: space-evenly;
+}

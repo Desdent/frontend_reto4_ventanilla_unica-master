@@ -1,0 +1,498 @@
+<div class="flex flex-col gap-10">
+  <div class="card w-full bg-primary p-10 rounded-2xl">
+    <p class="text-text text-4xl font-semibold">Users</p>
+  </div>
+
+  <div class="card w-full bg-card p-10 rounded-2xl">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+      <input
+        type="text"
+        placeholder="Search users..."
+        class="w-full md:w-1/3 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary text-text-contrast border border-gray-300"
+        (keyup)="onSearch($event)"
+      />
+
+      <button
+        aria-label="Add User"
+        class="bg-hover-border text-text px-5 py-2 rounded-lg cursor-pointer transition hover:bg-hover"
+        (click)="modalAddUser.set(true)"
+      >
+        <span class="pi pi-plus"></span>
+      </button>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full border rounded-xl overflow-hidden">
+        <thead class="bg-hover-border">
+          <tr>
+            <th
+              class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+              (click)="orderByAndReload('name')"
+            >
+              Name
+              @if (orderField().toLocaleLowerCase() == 'name') {
+                @if (orderBy().toLocaleLowerCase() == 'asc') {
+                  <span class="pi pi-sort-up"></span>
+                } @else {
+                  <span class="pi pi-sort-down"></span>
+                }
+              } @else {
+                <span class="pi pi-sort"></span>
+              }
+            </th>
+            <th
+              class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+              (click)="orderByAndReload('surname1')"
+            >
+              Surname
+              @if (orderField().toLocaleLowerCase() == 'surname1') {
+                @if (orderBy().toLocaleLowerCase() == 'asc') {
+                  <span class="pi pi-sort-up"></span>
+                } @else {
+                  <span class="pi pi-sort-down"></span>
+                }
+              } @else {
+                <span class="pi pi-sort"></span>
+              }
+            </th>
+            <th
+              class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+              (click)="orderByAndReload('email')"
+            >
+              Email
+              @if (orderField().toLocaleLowerCase() == 'email') {
+                @if (orderBy().toLocaleLowerCase() == 'asc') {
+                  <span class="pi pi-sort-up"></span>
+                } @else {
+                  <span class="pi pi-sort-down"></span>
+                }
+              } @else {
+                <span class="pi pi-sort"></span>
+              }
+            </th>
+            <th
+              class="text-left p-4 border-b text-text hover:bg-hover cursor-pointer"
+              (click)="orderByAndReload('phone')"
+            >
+              Phone
+              @if (orderField().toLocaleLowerCase() == 'phone') {
+                @if (orderBy().toLocaleLowerCase() == 'asc') {
+                  <span class="pi pi-sort-up"></span>
+                } @else {
+                  <span class="pi pi-sort-down"></span>
+                }
+              } @else {
+                <span class="pi pi-sort"></span>
+              }
+            </th>
+
+            <th class="text-left p-4 border-b text-text">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @if (loading()) {
+            @for (item of [1, 2, 3, 4, 5]; track $index) {
+              <tr>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-bg rounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-bg rounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-bg rounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 w-20 bg-bg rounded animate-pulse"></div>
+                </td>
+              </tr>
+            }
+          } @else {
+            @for (user of users(); track $index) {
+              <tr class="hover:bg-bg transition">
+                <td class="p-4 border-b">{{ user.name }}</td>
+                <td class="p-4 border-b">{{ user.surname1 }}</td>
+                <td class="p-4 border-b">{{ user.email }}</td>
+                <td class="p-4 border-b">{{ user.phone }}</td>
+                <td class="p-4 border-b">
+                  <div class="flex gap-2">
+                    <span>
+                      @if (user.isActive) {
+                        <button
+                          aria-label="Ban User"
+                          class="bg-red-button text-text px-3 py-1 rounded cursor-pointer transition hover:bg-red-button-hover"
+                          (click)="confirmAction(user)"
+                        >
+                          <span class="pi pi-ban"></span>
+                        </button>
+                      } @else {
+                        <button
+                          aria-label="Unban User"
+                          class="bg-green-button text-text px-3 py-1 rounded cursor-pointer transition hover:bg-green-button-hover"
+                          (click)="confirmAction(user)"
+                        >
+                          <span class="pi pi-check"></span>
+                        </button>
+                      }
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+      <div class="flex justify-center items-center gap-4 mt-6">
+        <button
+          aria-label="Previous"
+          class="px-4 py-2 bg-hover-border rounded disabled:opacity-50 cursor-pointer text-text-contrast"
+          (click)="prevPage()"
+          [disabled]="page() === 1"
+        >
+          Prev
+        </button>
+
+        <!--  If i've understood it correctly constructor builds an array in "real" time -->
+        @for (p of [].constructor(totalPages()); let i = $index; track $index) {
+          <button
+            aria-label="Page number"
+            class="px-3 py-1 rounded bg-primary cursor-pointer"
+            [class.bg-primary]="page() === i + 1"
+            [class.text-white]="page() === i + 1"
+            (click)="goToPage(i + 1)"
+          >
+            {{ i + 1 }}
+          </button>
+        }
+
+        <button
+          aria-label="Next"
+          class="px-4 py-2 bg-hover-border rounded disabled:opacity-50 cursor-pointer text-text-contrast"
+          (click)="nextPage()"
+          [disabled]="page() === totalPages()"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE MODAL -->
+  <div class="card flex justify-center">
+    <p-dialog
+      header="User Form"
+      [modal]="true"
+      [visible]="modalAddUser()"
+      styleClass="min-w-2/5 p-4 bg-card text-text-contrast "
+      (onHide)="modalAddUser.set(false)"
+    >
+      @if (createUserForm) {
+        <form class="grid grid-cols-2 gap-6" [formGroup]="createUserForm">
+          <!-- LEFT  -->
+          <div>
+            <!-- Name  -->
+            <div class="flex flex-col pb-6 min-h-30">
+              <label for="name" class="font-semibold pb-2 text-hover" i18n="@@createAdmin.name"
+                >Name *</label
+              >
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="p-1 text-sm rounded w-full pr-25 border border-hover-border"
+                placeholder="John"
+              />
+              @if (nameControl?.errors?.['required'] && nameControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@createAdmin.errorNameRequired"
+                  >Required name</span
+                >
+              } @else {
+                @if (nameControl?.errors?.['minlength'] && nameControl?.touched) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="createAdmin.errorNameMin"
+                    >Min length is 1
+                  </span>
+                }
+                @if (nameControl?.errors?.['maxlength'] && nameControl?.touched) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="createAdmin.errorNameMax"
+                    >Max length is 30
+                  </span>
+                }
+              }
+            </div>
+            <!-- Surname2  -->
+            <div class="flex flex-col pb-6 min-h-30">
+              <label
+                for="surname2"
+                class="font-semibold pb-2 text-hover"
+                i18n="@@createAdmin.surname2"
+                >Surname2
+              </label>
+              <input
+                type="text"
+                id="surname2"
+                formControlName="surname2"
+                class="p-1 text-sm rounded w-full pr-25 border border-hover-border"
+                placeholder="Dae"
+              />
+            </div>
+
+            <!-- DNI  -->
+            <div class="flex flex-col pb-6 min-h-30">
+              <label for="dni" class="font-semibold pb-2 text-hover" i18n="@@createAdmin.dni"
+                >DNI/NIE *</label
+              >
+              <input
+                type="text"
+                id="dni"
+                formControlName="dni"
+                class="p-1 text-sm rounded w-full pr-25 border border-hover-border"
+                placeholder="12345678A"
+              />
+              @if (dniControl?.errors?.['required'] && dniControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@createAdmin.errorDniRequired"
+                  >Required name</span
+                >
+              } @else {
+                @if (dniControl?.errors?.['invalidDniNie'] && dniControl?.touched) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="@@createAdmin.errorDniInvalid"
+                    >Invalid document</span
+                  >
+                }
+              }
+            </div>
+          </div>
+
+          <!-- RIGHT   -->
+          <div>
+            <!-- Surname1  -->
+            <div class="flex flex-col pb-6 min-h-30">
+              <label
+                for="surname1"
+                class="font-semibold pb-2 text-hover"
+                i18n="@@createAdmin.surname1"
+                >Surname1 *</label
+              >
+              <input
+                type="text"
+                id="surname1"
+                formControlName="surname1"
+                class="p-1 text-sm rounded w-full pr-25 border border-hover-border"
+                placeholder="Doe"
+              />
+              @if (surname1Control?.errors?.['required'] && surname1Control?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@createAdmin.errorSurame1Required"
+                  >Required surname1</span
+                >
+              } @else {
+                @if (surname1Control?.errors?.['minlength'] && surname1Control?.touched) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="createAdmin.errorSurname1Min"
+                    >Min length is 1
+                  </span>
+                }
+                @if (surname1Control?.errors?.['maxlength'] && surname1Control?.touched) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="createAdmin.errorSurname1Max"
+                    >Max length is 30
+                  </span>
+                }
+              }
+            </div>
+
+            <!-- Email  -->
+            <div class="flex flex-col pb-6 min-h-30">
+              <label for="email" class="font-semibold pb-2 text-hover" i18n="@@createAdmin.email"
+                >Email *</label
+              >
+              <input
+                type="text"
+                id="email"
+                formControlName="email"
+                class="p-1 text-sm rounded w-full pr-25 border border-hover-border"
+                placeholder="Example@gmail.com"
+              />
+              @if (emailControl?.errors?.['required'] && emailControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@createAdmin.errorEmailRequired"
+                  >Required email</span
+                >
+              } @else {
+                @if (emailControl?.errors?.['invalidEmail'] && emailControl?.touched) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="@@createAdmin.errorEmailInvalid"
+                    >Invalid email</span
+                  >
+                }
+              }
+            </div>
+
+            <!-- Phone   -->
+            <div class="flex flex-col pb-6 min-h-30">
+              <label for="phone" class="font-semibold pb-2 text-hover" i18n="@createAdmin.phone"
+                >Phone</label
+              >
+              <input
+                type="text"
+                id="phone"
+                formControlName="phone"
+                class="p-1 text-sm rounded w-full pr-25 border border-hover-border"
+                placeholder="954321987"
+              />
+              @if (phoneControl?.errors?.['required'] && phoneControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@createAdmin.errorPhoneRequired"
+                  >Required phone</span
+                >
+              } @else {
+                @if (phoneControl?.errors?.['invalidPhone'] && phoneControl?.touched) {
+                  <span
+                    class="text-sm text-red-400 font-semibold pt-1"
+                    i18n="@@createAdmin.errorPhoneInvalid"
+                    >Invalid phone
+                  </span>
+                }
+              }
+            </div>
+
+            <!-- Address   -->
+            <div class="flex flex-col pb-6 min-h-30">
+              <label for="address" class="font-semibold pb-2 text-hover" i18n="@createAdmin.address"
+                >Address</label
+              >
+              <input
+                type="text"
+                id="address"
+                formControlName="address"
+                class="p-1 text-sm rounded w-full pr-25 border border-hover-border"
+                placeholder="False Street"
+              />
+              @if (addressControl?.errors?.['maxlength'] && addressControl?.touched) {
+                <span
+                  class="text-sm text-red-400 font-semibold pt-1"
+                  i18n="@@createAdmin.errorAddressMaxLength"
+                  >Max length is 100</span
+                >
+              }
+            </div>
+          </div>
+
+          <div class="col-span-2 min-w-full flex justify-between">
+            <div class="gap-2 flex"></div>
+            <div class="flex justify-end">
+              <button
+                aria-label="Create User"
+                type="button"
+                class="bg-primary rounded p-2 transition hover:bg-hover text-white dark:text-gray-600 mb-1 cursor-pointer"
+                i18n="@@createAdmin.createAdmin"
+                (click)="onSubmit()"
+              >
+                Create User
+              </button>
+            </div>
+          </div>
+        </form>
+      }
+    </p-dialog>
+  </div>
+</div>
+
+<!-- MODAL USER CRATED -->
+
+<div class="card flex justify-center">
+  <p-dialog
+    header="User created"
+    [modal]="true"
+    [visible]="modalAddUserOk()"
+    styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+    [closable]="false"
+    [closeOnEscape]="false"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@modal.userCreated">User created.</p>
+    </div>
+  </p-dialog>
+</div>
+
+<!-- MODAL CONFIRM ACTION -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Confirm Action"
+    [modal]="true"
+    [visible]="modalConfirmAction()"
+    styleClass="w-80 p-4 border-red-600 bg-red-400  text-white"
+    (onHide)="modalConfirmAction.set(false)"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@modal.modalConfirmFirstP">Are you sure?</p>
+    </div>
+    <div class="flex justify-end gap-2">
+      <p-button
+        aria-label="Confirm"
+        label="Confirm"
+        severity="secondary"
+        class="bg-white rounded p-2 transition hover:bg-hover text-red-600 mb-1 cursor-pointer hover:text-white"
+        (click)="banUnban()"
+      />
+    </div>
+  </p-dialog>
+</div>
+
+<!-- MODAL USER BANNED -->
+
+<div class="card flex justify-center">
+  <p-dialog
+    header="Ban/Unban"
+    [modal]="true"
+    [visible]="modalActionOk()"
+    styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+    [closable]="false"
+    [closeOnEscape]="false"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@modal.userBanUnban">{{ actionMsg() }}</p>
+    </div>
+  </p-dialog>
+</div>
+
+<!-- MODAL ERROR -->
+
+<div class="card flex justify-center">
+  <p-dialog
+    header="Error"
+    [modal]="true"
+    [visible]="modalError()"
+    styleClass="w-80 p-4 border border-red-600 bg-red-400 text-white"
+    (onHide)="modalError.set(false)"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@modal.modalErrorFirstP">Oops, something went wrong.</p>
+      <p class="pb-2">{{ errorMsg() }}</p>
+    </div>
+    <div class="flex justify-end gap-2">
+      <p-button
+        aria-label="Close"
+        label="Close"
+        severity="secondary"
+        (click)="modalError.set(false)"
+      />
+    </div>
+  </p-dialog>
+</div>

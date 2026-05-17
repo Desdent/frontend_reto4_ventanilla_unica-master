@@ -1,0 +1,68 @@
+<div class="w-full mx-auto px-4 md:px-10 lg:px-24 xl:px-50 pt-6 pb-6 bg-card">
+  <p-toolbar class="bg-transparent">
+    <!-- LOGO -->
+    <ng-template #start>
+      <div class="flex justify-center md:justify-start w-full">
+        <img src="./devolea-logo.png" alt="Logo devolea" class="h-14 md:h-18" />
+      </div>
+    </ng-template>
+
+    <!-- CENTER -->
+    <ng-template #center>
+      <div class="flex flex-col items-center text-center gap-3 pt-4 md:pt-0">
+        <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+          <a
+            aria-label="Privacy Policy"
+            routerLink="/"
+            class="font-semibold text-sm md:text-base text-text-contrast transition hover:text-hover"
+          >
+            Privacy Policy
+          </a>
+
+          <a
+            aria-label="About Cookies"
+            routerLink="/"
+            class="font-semibold text-sm md:text-base text-text-contrast transition hover:text-hover"
+          >
+            About Cookies
+          </a>
+        </div>
+
+        <p class="text-xs md:text-sm dark:text-gray-600">© 2026 NovaHub. All Rights Reserved</p>
+      </div>
+    </ng-template>
+
+    <!-- CONTACT -->
+    <ng-template #end>
+      <div class="flex flex-col items-center md:items-end pt-4 md:pt-0">
+        <p class="pb-2 text-sm md:text-base text-text-contrast">Contact us</p>
+
+        <div class="flex items-center gap-2 text">
+          <a aria-label="Contact Email" href="/">
+            <img
+              src="./assets/email.svg"
+              alt="Banner to send us an email"
+              class="h-6 transition hover:scale-120"
+            />
+          </a>
+
+          <a aria-label="Contact Twitter" href="/">
+            <img
+              src="./assets/twitter.svg"
+              alt="Banner to our Twitter account"
+              class="h-6 transition hover:scale-120"
+            />
+          </a>
+
+          <a aria-label="Contact Phone" href="/">
+            <img
+              src="./assets/phone.svg"
+              alt="Banner to give us a call"
+              class="h-6 transition hover:scale-120"
+            />
+          </a>
+        </div>
+      </div>
+    </ng-template>
+  </p-toolbar>
+</div>

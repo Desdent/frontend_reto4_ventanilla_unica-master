@@ -1,0 +1,749 @@
+<div class="flex flex-col gap-10">
+  <div class="card w-full bg-primary p-10 rounded-2xl border-gray-200 shadow-sm">
+    <p class="text-text text-4xl font-semibold" i18n="@@dashboardAdmin.appointmentsTitle">
+      Schedules
+    </p>
+  </div>
+
+  <div
+    class="card w-full bg-card p-10 rounded-2xl border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
+  >
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+      <button
+        aria-label="Add Schedule"
+        class="bg-hover-border text-text px-5 py-2 rounded-lg cursor-pointer transition hover:bg-hover ml-auto"
+        (click)="modalAddSchedule.set(true)"
+      >
+        <span class="pi pi-plus"></span>
+      </button>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full border border-gray-200 rounded-xl overflow-hidden">
+        <thead class="bg-hover-border">
+          <tr>
+            <th class="text-centerp-4 border-b text-text" i18n="@@adminDashboard.scheduleType">
+              Type
+            </th>
+            <th
+              class="text-center p-4 border-b text-text"
+              i18n="@@adminDashboard.scheduleStartDate"
+            >
+              Start/End
+            </th>
+            <th class="text-center p-4 border-b text-text" i18n="@@adminDashboard.scheduleEndDate">
+              Entry/Exit
+            </th>
+            <th class="text-center p-4 border-b text-text">Workdays</th>
+
+            <th
+              class="text-center p-4 border-b text-text"
+              i18n="@@adminDashboard.appointmentsService"
+            >
+              Actions
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @if (loading()) {
+            @for (item of [1, 2, 3, 4, 5]; track $index) {
+              <tr>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-card rounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-card rounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-card rounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 bg-cardrounded animate-pulse"></div>
+                </td>
+                <td class="p-4 border-b">
+                  <div class="h-4 w-20 bg-card rounded animate-pulse"></div>
+                </td>
+              </tr>
+            }
+          } @else {
+            @if (!schedules()?.length) {
+              No appointments to show
+            } @else {
+              @for (schedule of schedules(); track $index) {
+                <tr class="hover:bg-bg transition">
+                  <td class="p-4 border-b text-text-contrast">{{ schedule.type | titlecase }}</td>
+                  <td class="p-4 border-b text-text-contrast">
+                    <div class="text-center">
+                      <p>{{ schedule.startDate }}</p>
+                      -
+                      <p>{{ schedule.endDate }}</p>
+                    </div>
+                  </td>
+                  <td class="p-4 border-b text-text-contrast">
+                    {{ schedule.entryTime }} - {{ schedule.exitTime }}
+                  </td>
+                  <td class="p-4 border-b text-text-contrast">
+                    @for (workday of schedule.workdays; track $index) {
+                      @if ($last) {
+                        {{ workday | titlecase }}
+                      } @else {
+                        {{ workday | titlecase }},
+                      }
+                    }
+                  </td>
+                  <td class="p-4 border-b text-center text-text-contrast">
+                    <div class="flex justify-center gap-2 w-full">
+                      <button
+                        aria-label="Edit Schedule"
+                        class="bg-hover-border text-text px-3 py-1 justify-center rounded cursor-pointer transition hover:bg-hover"
+                        i18n="addCompany.buttonEdit"
+                        (click)="selectSchedule(schedule)"
+                      >
+                        <span class="pi pi-pencil"></span>
+                      </button>
+                      <button
+                        aria-label="Delete Schedule"
+                        class="bg-red-button text-text px-3 py-1 justify-center rounded cursor-pointer transition hover:bg-red-button-hover"
+                        i18n="addCompany.buttonDelete"
+                        (click)="selectToDelete(schedule)"
+                      >
+                        <span class="pi pi-trash"></span>
+                      </button>
+                      @if (!schedule.isActive) {
+                        <button
+                          aria-label="Activate Schedule"
+                          class="bg-green-button text-text px-3 py-1 justify-center rounded cursor-pointer transition hover:bg-green-button-hover"
+                          i18n="addCompany.buttonActivate"
+                          (click)="selectToActivate(schedule)"
+                        >
+                          <span class="pi pi-check"></span>
+                        </button>
+                      }
+                    </div>
+                  </td>
+                </tr>
+              }
+            }
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- FORM ADD SCHEDULE -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Add Schedule"
+    [modal]="true"
+    [visible]="modalAddSchedule()"
+    styleClass="min-w-2/5 p-4 bg-card text-text-contrast"
+    (onHide)="modalAddSchedule.set(false)"
+  >
+    <form class="grid grid-cols-2 gap-6" [formGroup]="addScheduleForm" (ngOnSubmit)="onSubmit()">
+      <!-- LEFT -->
+      <div class="flex flex-col gap-4 pb-6">
+        <!-- NAME -->
+        <div class="flex flex-col">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.scheduleName"> Name * </label>
+
+          <input
+            type="text"
+            formControlName="name"
+            class="bg-card p-1 text-sm rounded w-full border border-hover-border"
+            placeholder="Test"
+          />
+          @if (nameControl?.errors?.['required'] && nameControl?.touched) {
+            <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@addCompany.errorName"
+              >Required name</span
+            >
+          } @else {
+            @if (nameControl?.errors?.['minlength'] && nameControl?.touched) {
+              <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@addCompany.errorNameMin"
+                >Min length is 1
+              </span>
+            }
+            @if (nameControl?.errors?.['maxlength'] && nameControl?.touched) {
+              <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@addCompany.errorNameMax"
+                >Max length is 30
+              </span>
+            }
+          }
+        </div>
+
+        <!-- TYPE -->
+        <div class="flex flex-col pb-6">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.scheduleType"> Type * </label>
+
+          <select
+            formControlName="type"
+            class="bg-card p-1 text-sm rounded w-full border border-hover-border"
+          >
+            <option value="" disabled>Select type</option>
+            @for (type of scheduleTypes; track $index) {
+              <option value="{{ type }}">{{ type | titlecase }}</option>
+            }
+          </select>
+          @if (typeControl?.errors?.['required'] && typeControl?.touched) {
+            <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@addCompany.errorName"
+              >Required type</span
+            >
+          }
+        </div>
+
+        <!-- WORKDAYS -->
+        <div class="flex flex-col pb-6">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.workdays"> Workdays </label>
+
+          <div class="flex flex-wrap gap-2">
+            @for (day of scheduleWorkdays; track $index) {
+              <label class="flex gap-1 items-center">
+                <input type="checkbox" (change)="toggleWorkday(day, $event)" />
+                {{ day | titlecase }}
+              </label>
+            }
+            @if (workdaysControl.errors?.['required'] && workdaysControl.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@form.errorWorkdaysRequired"
+                >Required workday</span
+              >
+            } @else {
+              @if (workdaysControl.errors?.['minlength'] && workdaysControl.touched) {
+                <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@form.errorWorkdaysMin"
+                  >Must select at least 1
+                </span>
+              }
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="flex flex-col gap-4">
+        <!-- ENTRY TIME -->
+        <div class="flex flex-col pb-6">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.entryTime">
+            Entry Time *
+          </label>
+
+          <input
+            type="time"
+            formControlName="entryTime"
+            class="bg-card p-1 text-sm rounded w-full border border-hover-border"
+          />
+          @if (entryTimeControl?.errors?.['required'] && entryTimeControl?.touched) {
+            <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@form.entryTime"
+              >Required entry time</span
+            >
+          }
+        </div>
+
+        <!-- EXIT TIME -->
+        <div class="flex flex-col pb-6">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.exitTime"> Exit Time * </label>
+
+          <input
+            type="time"
+            formControlName="exitTime"
+            class="bg-card p-1 text-sm rounded w-full border border-hover-border"
+          />
+          @if (exitTImeControl?.errors?.['required'] && exitTImeControl?.touched) {
+            <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@form.exitTime"
+              >Required exit time</span
+            >
+          }
+        </div>
+
+        <!-- START DATE -->
+        <div class="flex flex-col pb-6">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.scheduleStartDate">
+            Start Date
+          </label>
+
+          <input
+            type="date"
+            formControlName="startDate"
+            class="bg-card p-1 text-sm rounded w-full border border-hover-border"
+          />
+          @if (addScheduleForm.errors?.['invalidDateRange'] && startDateControl?.touched) {
+            <span
+              class="text-sm text-red-400 font-semibold pt-1"
+              i18n="@@form.errorStartDateAfterEndDate"
+              >Start date must be before End Date</span
+            >
+          }
+        </div>
+
+        <!-- END DATE -->
+        <div class="flex flex-col pb-6">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.scheduleEndDate">
+            End Date
+          </label>
+
+          <input
+            type="date"
+            formControlName="endDate"
+            class="bg-card p-1 text-sm rounded w-full border border-hover-border"
+          />
+          @if (addScheduleForm.errors?.['invalidBeforeToday'] && endDateControl?.touched) {
+            <span
+              class="text-sm text-red-400 font-semibold pt-1"
+              i18n="@@form.errorInvalidBeforeToday"
+              >Must be a valid date</span
+            >
+          }
+          @if (addScheduleForm.errors?.['invalidDateRange'] && endDateControl?.touched) {
+            <span
+              class="text-sm text-red-400 font-semibold pt-1"
+              i18n="@@form.errorStartDateAfterEndDate"
+              >Start date must be before End Date</span
+            >
+          }
+        </div>
+
+        <!-- FESTIVITIES -->
+        <div class="flex flex-col pb-6">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.festivities">
+            Festivities
+          </label>
+
+          <div class="flex gap-2">
+            <input
+              type="date"
+              #festInput
+              class="bg-card p-1 text-sm rounded border border-hover-border"
+            />
+            <button
+              aria-label="Add Festivity"
+              type="button"
+              class="bg-hover-border text-text px-3 py-1 justify-center rounded cursor-pointer transition hover:bg-hover"
+              (click)="addFestivity(festInput.value)"
+            >
+              <span class="pi pi-plus"></span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-4 gap-2 mt-2">
+            @for (festivity of festivitiesControl.controls; let i = $index; track $index) {
+              <div class="flex items-center justify-between bg-gray-100 px-2 py-1 rounded">
+                <span class="text-sm">{{ festivity.value }}</span>
+
+                <button
+                  aria-label="Remove Festivity"
+                  type="button"
+                  class="text-primary font-bold hover: cursor-pointer"
+                  (click)="removeFestivity(i)"
+                >
+                  ✕
+                </button>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="col-span-2 flex justify-between mt-4">
+        <button
+          aria-label="Add Schedule"
+          type="submit"
+          class="bg-hover-border text-text px-3 py-1 ml-auto justify-center rounded cursor-pointer transition hover:bg-hover"
+          i18n="@@form.createSchedule"
+          (click)="onSubmit()"
+        >
+          Add Schedule
+        </button>
+      </div>
+    </form>
+  </p-dialog>
+</div>
+
+<!-- FORM UPDATE SCHEDULE -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Update Schedule"
+    [modal]="true"
+    [visible]="modalUpdateSchedule()"
+    styleClass="min-w-2/5 p-4 bg-card text-text-contrast"
+    (onHide)="modalUpdateSchedule.set(false)"
+  >
+    <form class="grid grid-cols-2 gap-6" [formGroup]="updateScheduleForm">
+      <!-- LEFT -->
+      <div class="flex flex-col gap-4 pb-6">
+        <!-- NAME -->
+        <div class="flex flex-col">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.scheduleName"> Name * </label>
+
+          <input
+            type="text"
+            formControlName="name"
+            class="bg-card p-1 text-sm rounded w-full border border-hover-border"
+            placeholder="Test"
+          />
+          @if (updateNameControl?.errors?.['required'] && updateNameControl?.touched) {
+            <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@addCompany.errorName"
+              >Required name</span
+            >
+          } @else {
+            @if (updateNameControl?.errors?.['minlength'] && updateNameControl?.touched) {
+              <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@addCompany.errorNameMin"
+                >Min length is 1
+              </span>
+            }
+            @if (updateNameControl?.errors?.['maxlength'] && updateNameControl?.touched) {
+              <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@addCompany.errorNameMax"
+                >Max length is 30
+              </span>
+            }
+          }
+        </div>
+
+        <!-- TYPE -->
+        <div class="flex flex-col pb-6">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.scheduleType"> Type * </label>
+
+          <select
+            formControlName="type"
+            class="bg-card p-1 text-sm rounded w-full border border-hover-border"
+          >
+            <option value="" disabled>Select type</option>
+            @for (type of scheduleTypes; track $index) {
+              <option value="{{ type }}">{{ type | titlecase }}</option>
+            }
+          </select>
+          @if (updateTypeControl?.errors?.['required'] && updateTypeControl?.touched) {
+            <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@addCompany.errorName"
+              >Required type</span
+            >
+          }
+        </div>
+
+        <!-- WORKDAYS -->
+        <div class="flex flex-col pb-6">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.workdays"> Workdays </label>
+
+          <div class="flex flex-wrap gap-2">
+            @for (day of scheduleWorkdays; track $index) {
+              <label class="flex gap-1 items-center">
+                <input
+                  type="checkbox"
+                  (change)="toggleWorkdayUpdate(day, $event)"
+                  [checked]="updateWorkdaysControl.value.includes(day)"
+                />
+                {{ day | titlecase }}
+              </label>
+            }
+            @if (updateWorkdaysControl.errors?.['required'] && updateWorkdaysControl.touched) {
+              <span
+                class="text-sm text-red-400 font-semibold pt-1"
+                i18n="@@form.errorWorkdaysRequired"
+                >Required name</span
+              >
+            } @else {
+              @if (updateWorkdaysControl.errors?.['minlength'] && updateWorkdaysControl.touched) {
+                <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@form.errorWorkdaysMin"
+                  >Must select at least 1
+                </span>
+              }
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="flex flex-col gap-4">
+        <!-- ENTRY TIME -->
+        <div class="flex flex-col pb-6">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.entryTime">
+            Entry Time *
+          </label>
+
+          <input
+            type="time"
+            formControlName="entryTime"
+            class="bg-card p-1 text-sm rounded w-full border border-hover-border"
+          />
+          @if (updateEntryTimeControl?.errors?.['required'] && updateEntryTimeControl?.touched) {
+            <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@form.entryTime"
+              >Required entry time</span
+            >
+          }
+        </div>
+
+        <!-- EXIT TIME -->
+        <div class="flex flex-col pb-6">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.exitTime"> Exit Time * </label>
+
+          <input
+            type="time"
+            formControlName="exitTime"
+            class="bg-card p-1 text-sm rounded w-full border border-hover-border"
+          />
+          @if (updateEntryTimeControl?.errors?.['required'] && updateEntryTimeControl?.touched) {
+            <span class="text-sm text-red-400 font-semibold pt-1" i18n="@@form.exitTime"
+              >Required exit time</span
+            >
+          }
+        </div>
+
+        <!-- START DATE -->
+        <div class="flex flex-col pb-6">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.scheduleStartDate">
+            Start Date
+          </label>
+
+          <input
+            type="date"
+            formControlName="startDate"
+            class="bg-card p-1 text-sm rounded w-full border border-hover-border"
+          />
+          @if (updateScheduleForm.errors?.['invalidDateRange'] && updateStartDateControl?.touched) {
+            <span
+              class="text-sm text-red-400 font-semibold pt-1"
+              i18n="@@form.errorStartDateAfterEndDate"
+              >Start date must be before End Date</span
+            >
+          }
+        </div>
+
+        <!-- END DATE -->
+        <div class="flex flex-col pb-6">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.scheduleEndDate">
+            End Date
+          </label>
+
+          <input
+            type="date"
+            formControlName="endDate"
+            class="bg-card p-1 text-sm rounded w-full border border-hover-border"
+          />
+          @if (
+            updateEndDateControl?.errors?.['invalidBeforeToday'] && updateEndDateControl?.touched
+          ) {
+            <span
+              class="text-sm text-red-400 font-semibold pt-1"
+              i18n="@@form.errorInvalidBeforeToday"
+              >Must be a valid date</span
+            >
+          }
+          @if (updateScheduleForm.errors?.['invalidDateRange'] && endDateControl?.touched) {
+            <span
+              class="text-sm text-red-400 font-semibold pt-1"
+              i18n="@@form.errorStartDateAfterEndDate"
+              >Start date must be before End Date</span
+            >
+          }
+        </div>
+
+        <!-- FESTIVITIES -->
+        <div class="flex flex-col pb-6">
+          <label class="font-semibold pb-2 text-hover" i18n="@@form.festivities">
+            Festivities
+          </label>
+
+          <div class="flex gap-2">
+            <input
+              type="date"
+              #festInput
+              class="bg-card p-1 text-sm rounded border border-hover-border"
+            />
+            <button
+              aria-label="Add Festivity"
+              type="button"
+              class="bg-hover-border text-text px-3 py-1 justify-center rounded cursor-pointer transition hover:bg-hover"
+              (click)="addToUpdateFestivity(festInput.value)"
+            >
+              <span class="pi pi-plus"></span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-4 gap-2 mt-2">
+            @for (festivity of updateFestivitiesControl.controls; let i = $index; track $index) {
+              <div class="flex items-center justify-between bg-gray-100 px-2 py-1 rounded">
+                <span class="text-sm">{{ festivity.value }}</span>
+
+                <button
+                  aria-label="Remove Festivity"
+                  type="button"
+                  class="text-primary font-bold hover: cursor-pointer"
+                  (click)="removeFromUpdateFestivity(i)"
+                >
+                  ✕
+                </button>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="col-span-2 flex justify-between mt-4">
+        <button
+          aria-label="Update Schdule"
+          type="submit"
+          class="bg-hover-border text-text px-3 py-1 ml-auto justify-center rounded cursor-pointer transition hover:bg-hover"
+          i18n="@@form.updateSchedule"
+          (click)="onUpdate()"
+        >
+          Update Schedule
+        </button>
+      </div>
+    </form>
+  </p-dialog>
+</div>
+
+<!-- MODALS -->
+
+<!-- MODAL ERROR ADD SCHEDULE -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Error"
+    [modal]="true"
+    [visible]="modalAddScheduleError()"
+    styleClass="w-80 p-4 border border-red-600 bg-red-400 text-text"
+    (onHide)="modalAddScheduleError.set(false)"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@addCompany.modalErrorFirstP">Oops, something went wrong.</p>
+      <p class="pb-2">{{ errorMsg() }}</p>
+    </div>
+    <div class="flex justify-end gap-2">
+      <p-button
+        aria-label="close"
+        label="Close"
+        severity="secondary"
+        (click)="modalAddScheduleError.set(false)"
+      />
+    </div>
+  </p-dialog>
+</div>
+<!-- MODAL OK ADD SCHEDULE -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Success"
+    [modal]="true"
+    [visible]="modalAddScheduleOk()"
+    styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+    [closable]="false"
+    [closeOnEscape]="false"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@addCompany.modalScheduleAdded">Schedule Added.</p>
+    </div>
+  </p-dialog>
+</div>
+
+<!-- MODAL ERROR UPDATE SCHEDULE -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Error"
+    [modal]="true"
+    [visible]="modalUpdateScheduleError()"
+    styleClass="w-80 p-4 border border-red-600 bg-red-400 text-text"
+    (onHide)="modalUpdateScheduleError.set(false)"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@addCompany.modalErrorFirstP">Oops, something went wrong.</p>
+      <p class="pb-2">{{ errorMsg() }}</p>
+    </div>
+    <div class="flex justify-end gap-2">
+      <p-button label="Close" severity="secondary" (click)="modalUpdateScheduleError.set(false)" />
+    </div>
+  </p-dialog>
+</div>
+<!-- MODAL OK UPDATE SCHEDULE -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Success"
+    [modal]="true"
+    [visible]="modalUpdateScheduleOk()"
+    styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+    [closable]="false"
+    [closeOnEscape]="false"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@addCompany.modalScheduleUpdated">Schedule Updated.</p>
+    </div>
+  </p-dialog>
+</div>
+
+<!-- MODAL CONFIRM DELETE -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Confirm Action"
+    [modal]="true"
+    [visible]="modalDeleteConfirm()"
+    styleClass="w-80 p-4 border-red-600 bg-red-400  text-text"
+    (onHide)="modalDeleteConfirm.set(false)"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@deleteAdmin.modalConfirmFirstP">Are you sure?</p>
+    </div>
+    <div class="flex justify-end gap-2">
+      <p-button
+        aria-label="Confirm Delete"
+        label="Confirm"
+        severity="secondary"
+        class="bg-card rounded p-2 transition hover:bg-hover text-red-600 mb-1 cursor-pointer hover:text-text"
+        (click)="delete()"
+      />
+    </div>
+  </p-dialog>
+</div>
+
+<!-- MODAL OK DELETE -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Success"
+    [modal]="true"
+    [visible]="modalDeleteOk()"
+    styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+    [closable]="false"
+    [closeOnEscape]="false"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@addCompany.modalScheduleDeleted">Schedule deleted.</p>
+    </div>
+  </p-dialog>
+</div>
+
+<!-- MODAL CONFIRM ACTIVATE -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Confirm Action"
+    [modal]="true"
+    [visible]="modalActivatedConfirm()"
+    styleClass="w-80 p-4 border-red-600 bg-hover-border  text-text"
+    (onHide)="modalActivatedConfirm.set(false)"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@deleteAdmin.modalConfirmFirstP">Are you sure?</p>
+    </div>
+    <div class="flex justify-end gap-2">
+      <p-button
+        aria-label="Confirm Activate"
+        label="Confirm"
+        severity="secondary"
+        class="bg-card rounded p-2 transition hover:bg-hover text-red-600 mb-1 cursor-pointer hover:text-text"
+        (click)="activate()"
+      />
+    </div>
+  </p-dialog>
+</div>
+
+<!-- MODAL OK DELETE -->
+<div class="card flex justify-center">
+  <p-dialog
+    header="Success"
+    [modal]="true"
+    [visible]="modalActivatedOk()"
+    styleClass="w-80 p-4 border border-green-600 bg-green-300 text-grey"
+    [closable]="false"
+    [closeOnEscape]="false"
+  >
+    <div class="gap-4 mb-4">
+      <p class="pb-2" i18n="@@addCompany.modalSchedulectivated">Schedule activated.</p>
+    </div>
+  </p-dialog>
+</div>

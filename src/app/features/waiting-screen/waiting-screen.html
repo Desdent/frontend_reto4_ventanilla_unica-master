@@ -1,0 +1,27 @@
+<div
+  class="flex items-center justify-center bg-[url('/assets/orange-bg.jpg')] bg-cover bg-center min-h-screen w-full p-4 sm:p-6"
+>
+  <div
+    class="flex flex-col rounded-3xl bg-bg w-full max-w-4xl p-4 sm:p-8 shadow-sm hover:shadow-md transition-all duration-300"
+  >
+    <div class="flex flex-col items-center w-full">
+      <img src="./novahub-logo.png" alt="logo" class="h-8 sm:h-10 mb-4 sm:mb-6" />
+
+      @for (appointment of queue(); track $index) {
+        @if (appointment) {
+          <div
+            class="flex flex-col items-center justify-center bg-primary/10 rounded-2xl w-full p-4 sm:p-6 mb-4 sm:mb-6"
+          >
+            <span class="text-3xl sm:text-4xl font-bold text-primary text-center">
+              {{ appointment.code }}
+            </span>
+
+            <span class="text-lg sm:text-xl text-gray-600 mt-2 text-center px-2">
+              {{ appointment.nameWorker }} - Counter {{ appointment.counter }}
+            </span>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</div>

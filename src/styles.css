@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import 'primeicons/primeicons.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@layer primeng;
+@layer base {
+}
+
+@theme {
+  /* Colors */
+  --color-primary: #e75b44; /* Main color. Company color, button, headers, active links */
+  --color-hover: #d04935; /* Color for the hover of the elements */
+  --color-hover-border: #f09b78; /* Color for the borders when hovering an element */
+  --color-hover-secondary: #fff0ee; /* Color for selected elements or active state */
+  --color-selected: #fde8e5; /* For the canvas */
+  --color-role-selector: #f1f3f4; /* Color for the role selector for a worker */
+  --color-bg: #f1f3f4; /* bg color */
+  --color-card: #ffffff;
+  --color-text: #ffffff;
+  --color-text-contrast: #000000;
+  --color-red-button: #e90c00;
+  --color-red-button-hover: #ca0c02;
+  --color-green-button: #4fa82b;
+  --color-green-button-hover: #2f661a;
+
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+:root {
+  --p-surface-ground: #f1f3f4;
+  --p-surface-card: #ffffff;
+}
+
+.dark {
+  --p-surface-ground: #111827;
+  --p-surface-card: #1f2937;
+
+  --color-primary: #d04935; /* Main color. Company color, button, headers, active links */
+  --color-hover: #e75b44; /* Color for the hover of the elements */
+  --color-hover-border: #d04935;
+  --color-hover-secondary: #3a1f1a; /* Active/selected soft orange background */
+  --color-selected: #2b1815; /* Canvas selected state */
+
+  --color-role-selector: #1f2328; /* Secondary surface */
+  --color-bg: #121417; /* Main app background */
+  --color-card: #1b1f24; /* Cards / panels */
+
+  --color-text: #f5f7fa; /* Primary text */
+  --color-text-contrast: #c4c5c7; /* Primary text */
+
+  --color-red-button-hover: #ff1509;
+  --color-green-button-hover: #5ac031;
+}

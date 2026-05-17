@@ -1,0 +1,20 @@
+<div class="flex flex-col gap-10">
+  <div class="card w-full bg-primary p-10 rounded-2xl border-gray-200 shadow-sm">
+    <p class="text-text text-4xl font-semibold">Hello, {{ name() | titlecase }}</p>
+  </div>
+
+  @switch (role()) {
+    @case (Roles.SUPERADMIN) {
+      <app-super-admin-stats [tokenSend]="token()"></app-super-admin-stats>
+    }
+    @case (Roles.ADMIN) {
+      <app-admin-stats [tokenSend]="token()"></app-admin-stats>
+    }
+    @case (Roles.WORKER) {
+      <app-worker-stats [tokenSend]="token()"></app-worker-stats>
+    }
+    @case (Roles.BASEUSER) {
+      <app-user-stats [tokenSend]="token()"></app-user-stats>
+    }
+  }
+</div>

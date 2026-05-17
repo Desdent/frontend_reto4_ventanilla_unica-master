@@ -1,0 +1,82 @@
+<div class="flex items-center justify-center bg-[url('/assets/orange-bg.jpg')] min-h-screen w-full">
+  <div
+    class="flex flex-col items-center rounded-3xl bg-bg min-w-100 p-8 shadow-sm hover:shadow-md transition-all duration-300"
+  >
+    <h1 class="text-2xl font-bold text-primary text-center">Confirm your arrival</h1>
+
+    <p class="text-sm text-gray-500 text-center mt-2">
+      Enter your confirmation code provided to confirm your arrival
+    </p>
+
+    <img src="./novahub-logo.png" alt="logo" class="h-8 my-6" />
+
+    <form [formGroup]="confirmForm" (submit)="onSubmit()" class="w-full">
+      <div class="pb-6">
+        <input
+          type="text"
+          formControlName="code"
+          class="bg-white p-3 text-lg text-center tracking-widest rounded-xl w-full border-2 border-hover-border"
+          placeholder="Your code..."
+        />
+
+        <span class="text-sm text-red-400 font-semibold h-5 block">
+          @if (codeControl?.errors?.['required'] && codeControl?.touched) {
+            Required code
+          }
+        </span>
+      </div>
+
+      <button
+        aria-label="Confirm Arrival"
+        type="submit"
+        class="mt-4 bg-primary text-white font-semibold py-3 rounded-xl w-full cursor-pointer hover:bg-hover"
+      >
+        Confirm arrival
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL ARRIVAL CONFIRMED -->
+
+<div class="card flex justify-center">
+  <p-dialog
+    header=""
+    [modal]="true"
+    [visible]="modalConfirmed()"
+    styleClass="w-120 h-60 p-6 bg-green-100 rounded-2xl"
+    [closable]="false"
+    [closeOnEscape]="false"
+  >
+    <div class="flex flex-col items-center justify-center h-full text-center">
+      <p class="text-2xl font-bold text-green-600 mb-2" i18n="@@modal.arrivalConfirmed">
+        Arrival Confirmed
+      </p>
+
+      <p class="text-md text-green-700" i18n="@@modal.ArrivalConfirmedFirstP">
+        Please wait while you're called.
+      </p>
+    </div>
+  </p-dialog>
+</div>
+
+<!-- MODAL  ERROR -->
+
+<div class="card flex justify-center">
+  <p-dialog
+    header=""
+    [modal]="true"
+    [visible]="modalError()"
+    styleClass="w-130 h-60 p-6 bg-red-400 rounded-2xl"
+    (onHide)="modalError.set(false)"
+  >
+    <div class="flex flex-col items-center justify-center text-center">
+      <p class="text-2xl font-bold text-white mb-2" i18n="@@modal.modalErrorFirstP">
+        Oops, something went wrong
+      </p>
+    </div>
+    <div class="flex flex-col items-center justify-center text-center pt-6">
+      <p class="text-white">{{ errorMsg() }}</p>
+    </div>
+  </p-dialog>
+</div>
